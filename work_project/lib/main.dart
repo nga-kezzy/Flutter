@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'transaction.dart';
+import 'models/transaction.dart';
+import 'package:intl/intl.dart';
 
 void main() {
   runApp(const MyApp());
@@ -35,10 +36,13 @@ class MyHomePage extends StatelessWidget {
     Transaction(
       id: 'x3',
       title: 'News hat',
-      amount: 50.9,
+      amount: 500.9,
       date: DateTime.now(),
     ),
   ];
+
+  final titlecontroller = TextEditingController();
+  final amountcontroller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -47,12 +51,42 @@ class MyHomePage extends StatelessWidget {
         title: Text('Home'),
       ),
       body: Column(
-        crossAxisAlignment: CrossAxisAlignment.end,
-        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Card(
             elevation: 5,
-            child: Container(width: 100, height: 40, child: Text('chart')),
+            child: Container(
+              width: 100,
+              height: 40,
+              child: Text('chart'),
+            ),
+          ),
+          Card(
+            child: Container(
+              padding: EdgeInsets.all(10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  TextField(
+                    decoration: InputDecoration(labelText: 'Titel'),
+                    controller: titlecontroller,
+                  ),
+                  TextField(
+                    decoration: InputDecoration(labelText: 'Amount'),
+                    controller: amountcontroller,
+                  ),
+                  FlatButton(
+                    child: Text('Add Transaction'),
+                    textColor: Colors.red,
+                    onPressed: () {
+                      print(titlecontroller.text);
+                      print(amountcontroller.text);
+                    },
+                  ),
+                ],
+              ),
+            ),
           ),
           Column(
             children: transactions.map((tx) {
@@ -60,18 +94,38 @@ class MyHomePage extends StatelessWidget {
                 child: Row(
                   children: [
                     Container(
-                      margin:
-                          EdgeInsets.symmetric(vertical: 20, horizontal: 40),
+                      margin: const EdgeInsets.symmetric(
+                          vertical: 20, horizontal: 40),
                       decoration: BoxDecoration(
                         border: Border.all(color: Colors.green, width: 2),
                       ),
                       padding: EdgeInsets.all(5),
-                      child: Text(tx.amount.toString()),
+                      child: Text(
+                        '\$ ${tx.amount}',
+                        style: const TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                            color: Colors.pink),
+                      ),
                     ),
                     Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(tx.title.toString()),
-                        Text(tx.date.toString()),
+                        Text(
+                          tx.title.toString(),
+                          style: const TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                            color: Color.fromRGBO(191, 62, 255, 0.4),
+                          ),
+                        ),
+                        Text(
+                          DateFormat('yyyy MM dd').format(tx.date),
+                          style: const TextStyle(
+                            fontSize: 16,
+                            color: Colors.black,
+                          ),
+                        ),
                       ],
                     ),
                   ],
