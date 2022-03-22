@@ -1,30 +1,9 @@
 import 'package:flutter/material.dart';
 import '../models/transaction.dart';
 import 'package:intl/intl.dart';
-import '../widgets/transaction_list.dart';
+import './new_transaction.dart';
 
 class TransactionList extends StatelessWidget {
-  final List<Transaction> _useTransactions = [
-    Transaction(
-      id: 'x1',
-      title: 'News shoes',
-      amount: 150.9,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 'x2',
-      title: 'News shirt',
-      amount: 300.9,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 'x3',
-      title: 'News hat',
-      amount: 500.9,
-      date: DateTime.now(),
-    ),
-  ];
-
   @override
   Widget build(BuildContext context) {
     return Column(
