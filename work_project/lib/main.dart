@@ -28,6 +28,19 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  void startAddNewTransaction(BuildContext ctx) {
+    showModalBottomSheet(
+      context: ctx,
+      builder: (_) {
+        return GestureDetector(
+          onTap: () {},
+          child: NewTransaction(_addNewTransaction),
+          behavior: HitTestBehavior.opaque,
+        );
+      },
+    );
+  }
+
   final List<Transaction> _useTransactions = [
     Transaction(
       id: 'x1',
@@ -57,18 +70,6 @@ class _MyHomePageState extends State<MyHomePage> {
     setState() {
       _useTransactions.add(newTx);
     }
-  }
-
-  void startAddNewTransaction(BuildContext ctx) {
-    showModalBottomSheet(
-      context: ctx,
-      builder: (_) {
-        return GestureDetector(
-          onTap: () {},
-          child: NewTransaction(_addNewTransaction),
-        );
-      },
-    );
   }
 
   @override
