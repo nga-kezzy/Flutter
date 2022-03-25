@@ -22,61 +22,7 @@ class _UserTransactionsState extends State<UserTransactions> {
     Transaction(
       id: 'x2',
       title: 'News shirt',
-      amount: 300.9,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 'x3',
-      title: 'News hat',
-      amount: 500.9,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 'x3',
-      title: 'News hat',
-      amount: 500.9,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 'x3',
-      title: 'News hat',
-      amount: 500.9,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 'x3',
-      title: 'News hat',
-      amount: 500.9,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 'x3',
-      title: 'News hat',
-      amount: 500.9,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 'x3',
-      title: 'News hat',
-      amount: 500.9,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 'x3',
-      title: 'News hat',
-      amount: 500.9,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 'x3',
-      title: 'News hat',
-      amount: 500.9,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 'x3',
-      title: 'News hat',
-      amount: 500.9,
+      amount: 10.9,
       date: DateTime.now(),
     ),
   ];
@@ -100,7 +46,7 @@ class _UserTransactionsState extends State<UserTransactions> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        NewTransaction(),
+        NewTransaction(_addNewTransaction),
         TransactionList(_useTransactions),
       ],
     );

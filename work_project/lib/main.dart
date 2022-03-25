@@ -25,21 +25,34 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Home'),
-      ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Card(
-            elevation: 5,
-            child: Container(
-              width: 100,
-              height: 40,
-              child: Text('chart'),
-            ),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.add),
+            onPressed: () {},
           ),
-          UserTransactions()
         ],
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Card(
+              elevation: 5,
+              child: Container(
+                width: 100,
+                height: 40,
+                child: Text('chart'),
+              ),
+            ),
+            UserTransactions()
+          ],
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        onPressed: () {},
       ),
     );
   }
