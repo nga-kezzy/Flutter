@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import './user_transaction.dart';
+
 import './transaction_list.dart';
 
 class NewTransaction extends StatelessWidget {
