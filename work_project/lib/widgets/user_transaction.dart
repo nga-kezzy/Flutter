@@ -31,6 +31,54 @@ class _UserTransactionsState extends State<UserTransactions> {
       amount: 500.9,
       date: DateTime.now(),
     ),
+    Transaction(
+      id: 'x3',
+      title: 'News hat',
+      amount: 500.9,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: 'x3',
+      title: 'News hat',
+      amount: 500.9,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: 'x3',
+      title: 'News hat',
+      amount: 500.9,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: 'x3',
+      title: 'News hat',
+      amount: 500.9,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: 'x3',
+      title: 'News hat',
+      amount: 500.9,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: 'x3',
+      title: 'News hat',
+      amount: 500.9,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: 'x3',
+      title: 'News hat',
+      amount: 500.9,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: 'x3',
+      title: 'News hat',
+      amount: 500.9,
+      date: DateTime.now(),
+    ),
   ];
 
   void _addNewTransaction(
