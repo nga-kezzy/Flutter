@@ -14,7 +14,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Home',
+      title: 'Personal Expenses',
+      theme: ThemeData(
+        primarySwatch: Colors.green,
+        accentColor: Colors.blue,
+      ),
       home: MyHomePage(),
     );
   }
@@ -76,7 +80,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Home'),
+        title: Text('Personal Expenses'),
       ),
       body: SingleChildScrollView(
         child: Column(

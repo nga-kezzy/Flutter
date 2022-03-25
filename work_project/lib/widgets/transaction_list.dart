@@ -28,25 +28,34 @@ class TransactionList extends StatelessWidget {
                     style: const TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 20,
-                        color: Colors.pink),
+                        color: Colors.grey),
                   ),
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      transactions[index].title.toString(),
-                      style: const TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18,
-                        color: Color.fromRGBO(191, 62, 255, 0.4),
+                    Container(
+                      child: Text(
+                        transactions[index].title.toString(),
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                          color: Colors.pink,
+                        ),
                       ),
                     ),
-                    Text(
-                      DateFormat('yyyy MM dd').format(transactions[index].date),
-                      style: const TextStyle(
-                        fontSize: 16,
-                        color: Colors.black,
+                    Container(
+                      margin: EdgeInsets.only(
+                        top: 5,
+                      ),
+                      child: Text(
+                        DateFormat('dd MM yyyy')
+                            .format(transactions[index].date),
+                        style: const TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black,
+                        ),
                       ),
                     ),
                   ],
