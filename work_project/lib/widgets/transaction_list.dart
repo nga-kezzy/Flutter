@@ -11,61 +11,82 @@ class TransactionList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 400,
-      child: ListView.builder(
-        itemBuilder: (ctx, index) {
-          return Card(
-            child: Row(
+      child: transactions.isEmpty
+          ? Column(
               children: [
+                Text(
+                  'Danh sách trống',
+                  style: TextStyle(
+                    fontFamily: 'Red_Hat_Mono',
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
                 Container(
-                  margin:
-                      const EdgeInsets.symmetric(vertical: 20, horizontal: 40),
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.green, width: 2),
-                  ),
-                  padding: EdgeInsets.all(5),
-                  child: Text(
-                    '\$ ${transactions[index].amount.toStringAsFixed(2)}',
-                    style: const TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20,
-                        color: Colors.grey),
-                  ),
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Container(
-                      child: Text(
-                        transactions[index].title.toString(),
-                        style: const TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18,
-                          color: Colors.pink,
-                        ),
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(
-                        top: 5,
-                      ),
-                      child: Text(
-                        DateFormat('dd MM yyyy')
-                            .format(transactions[index].date),
-                        style: const TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+                    height: 300,
+                    width: 400,
+                    child: Image.asset('assets/images/love.jpg',
+                        fit: BoxFit.cover)),
               ],
+            )
+          : ListView.builder(
+              itemBuilder: (ctx, index) {
+                return Card(
+                  child: Row(
+                    children: [
+                      Container(
+                        margin: const EdgeInsets.symmetric(
+                            vertical: 20, horizontal: 40),
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.green, width: 2),
+                        ),
+                        padding: EdgeInsets.all(5),
+                        child: Text(
+                          '\$ ${transactions[index].amount.toStringAsFixed(2)}',
+                          style: const TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20,
+                              color: Colors.grey),
+                        ),
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            child: Text(
+                              transactions[index].title.toString(),
+                              style: const TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 18,
+                                color: Colors.pink,
+                              ),
+                            ),
+                          ),
+                          Container(
+                            margin: EdgeInsets.only(
+                              top: 5,
+                            ),
+                            child: Text(
+                              DateFormat('dd MM yyyy')
+                                  .format(transactions[index].date),
+                              style: const TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                );
+              },
+              itemCount: transactions.length,
             ),
-          );
-        },
-        itemCount: transactions.length,
-      ),
     );
   }
 }

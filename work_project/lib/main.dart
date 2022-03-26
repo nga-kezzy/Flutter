@@ -14,7 +14,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Personal Expenses',
       theme: ThemeData(
         primarySwatch: Colors.green,
         accentColor: Colors.blue,
@@ -46,18 +45,18 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   final List<Transaction> _useTransactions = [
-    Transaction(
-      id: 'x1',
-      title: 'News shoes',
-      amount: 150.9,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 'x2',
-      title: 'News shirt',
-      amount: 10.9,
-      date: DateTime.now(),
-    ),
+    // Transaction(
+    //   id: 'x1',
+    //   title: 'News shoes',
+    //   amount: 150.9,
+    //   date: DateTime.now(),
+    // ),
+    // Transaction(
+    //   id: 'x2',
+    //   title: 'News shirt',
+    //   amount: 10.9,
+    //   date: DateTime.now(),
+    // ),
   ];
 
   void _addNewTransaction(
@@ -80,7 +79,8 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: new Text('Personal Expenses'),
+        title: new Text('Personal Expenses',
+            style: TextStyle(fontFamily: 'Red_Hat_Mono')),
       ),
       body: SingleChildScrollView(
         child: Column(
