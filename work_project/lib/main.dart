@@ -80,7 +80,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Personal Expenses'),
+        title: new Text('Personal Expenses'),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -90,9 +90,13 @@ class _MyHomePageState extends State<MyHomePage> {
             Card(
               elevation: 5,
               child: Container(
-                width: 100,
+                width: 250,
                 height: 40,
-                child: Text('chart'),
+                child: Text('Nguyễn Văn Ngà',
+                    style: TextStyle(
+                        fontFamily: 'Red_Hat_Mono',
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold)),
               ),
             ),
             TransactionList(_useTransactions),
