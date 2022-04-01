@@ -1,8 +1,11 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 
 import './widgets/new_transaction.dart';
 import './widgets/transaction_list.dart';
 import './models/transaction.dart';
+import './widgets/chart.dart';
 
 void main() {
   runApp(MyApp());
@@ -45,19 +48,29 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   final List<Transaction> _useTransactions = [
-    // Transaction(
-    //   id: 'x1',
-    //   title: 'News shoes',
-    //   amount: 150.9,
-    //   date: DateTime.now(),
-    // ),
-    // Transaction(
-    //   id: 'x2',
-    //   title: 'News shirt',
-    //   amount: 10.9,
-    //   date: DateTime.now(),
-    // ),
+    Transaction(
+      id: 'x1',
+      title: 'News shoes',
+      amount: 150.9,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: 'x2',
+      title: 'News shirt',
+      amount: 10.9,
+      date: DateTime.now(),
+    ),
   ];
+
+  // List<Transaction> get _recentTransactions {
+  //   return _userTransactions.where((tx) {
+  //     return tx.date.isAfter(
+  //       DateTime.now().subtract(
+  //         Duration(days: 7),
+  //       ),
+  //     );
+  //   });
+  // }
 
   void _addNewTransaction(
     String txTitle,
@@ -87,27 +100,18 @@ class _MyHomePageState extends State<MyHomePage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Card(
-              elevation: 5,
-              child: Container(
-                width: 250,
-                height: 40,
-                child: Text('Nguyễn Văn Ngà',
-                    style: TextStyle(
-                        fontFamily: 'Red_Hat_Mono',
-                        fontSize: 25,
-                        fontWeight: FontWeight.bold)),
-              ),
-            ),
+            // Chart(_recentTransactions),
             TransactionList(_useTransactions),
           ],
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
-        onPressed: () => startAddNewTransaction(context),
-      ),
+      floatingActionButton: Platform.isIOS
+          ? Container()
+          : FloatingActionButton(
+              child: Icon(Icons.add),
+              onPressed: () => startAddNewTransaction(context),
+            ),
     );
   }
 }
