@@ -28,4 +28,54 @@ const DUMMY_CATEGORIES = [
     title: 'luan',
     color: Colors.grey,
   ),
+  Category(
+    id: 'c6',
+    title: 'luan',
+    color: Colors.orange,
+  ),
+  Category(
+    id: 'c7',
+    title: 'luan',
+    color: Colors.purple,
+  ),
+  Category(
+    id: 'c8',
+    title: 'luan',
+    color: Colors.green,
+  ),
+  Category(
+    id: 'c8',
+    title: 'luan',
+    color: Colors.green,
+  ),
+  Category(
+    id: 'c8',
+    title: 'luan',
+    color: Colors.green,
+  ),
+  Category(
+    id: 'c8',
+    title: 'luan',
+    color: Colors.green,
+  ),
+  Category(
+    id: 'c8',
+    title: 'luan',
+    color: Colors.green,
+  ),
+  Category(
+    id: 'c8',
+    title: 'luan',
+    color: Colors.green,
+  ),
+  Category(
+    id: 'c8',
+    title: 'luan',
+    color: Colors.green,
+  ),
+  Category(
+    id: 'c8',
+    title: 'luan',
+    color: Colors.green,
+  ),
 ];
