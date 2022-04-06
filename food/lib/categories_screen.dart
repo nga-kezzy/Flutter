@@ -20,7 +20,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
         title: Text('Food'),
       ),
       body: GridView(
-        padding: EdgeInsets.all(15),
+        padding: EdgeInsets.all(25),
         children: DUMMY_CATEGORIES
             .map((catData) => CategoryItem(
                   catData.title,
