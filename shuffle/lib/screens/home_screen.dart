@@ -3,12 +3,13 @@ import 'package:flutter/material.dart';
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
         child: Container(
-          margin: EdgeInsets.symmetric(horizontal: 10),
+          margin: const EdgeInsets.symmetric(horizontal: 10),
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
           child: Column(
@@ -18,7 +19,7 @@ class HomeScreen extends StatelessWidget {
                   borderRadius: BorderRadius.circular(5),
                   color: Colors.blue,
                 ),
-                margin: EdgeInsets.symmetric(vertical: 10),
+                margin: const EdgeInsets.symmetric(vertical: 10),
                 height: 110,
                 width: MediaQuery.of(context).size.width,
                 child: Column(
@@ -48,8 +49,8 @@ class HomeScreen extends StatelessWidget {
                 child: ListView.builder(
                   itemBuilder: (contextListView, index) {
                     return Container(
-                      padding: EdgeInsets.only(left: 5),
-                      margin: EdgeInsets.only(bottom: 4),
+                      padding: const EdgeInsets.only(left: 5),
+                      margin: const EdgeInsets.only(bottom: 4),
                       height: 80,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(5),

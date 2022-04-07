@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 
 class PlayScreen extends StatefulWidget {
@@ -17,7 +15,7 @@ class _PlayScreenState extends State<PlayScreen> {
         child: Container(
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             color: Color.fromRGBO(255, 255, 204, 1),
           ),
           child: Column(
@@ -26,7 +24,7 @@ class _PlayScreenState extends State<PlayScreen> {
                 height: 70,
                 child: Row(mainAxisAlignment: MainAxisAlignment.end, children: [
                   Container(
-                    padding: EdgeInsets.only(
+                    padding: const EdgeInsets.only(
                       right: 15,
                       top: 20,
                     ),
@@ -71,23 +69,19 @@ class _PlayScreenState extends State<PlayScreen> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: const [
                           Icon(
-                            Icons.check_box_outline_blank_outlined,
+                            Icons.circle_outlined,
                             size: 50,
                           ),
                           Icon(
-                            Icons.check_box_outline_blank_outlined,
+                            Icons.circle_outlined,
                             size: 50,
                           ),
                           Icon(
-                            Icons.check_box_outline_blank_outlined,
+                            Icons.circle_outlined,
                             size: 50,
                           ),
                           Icon(
-                            Icons.check_box_outline_blank_outlined,
-                            size: 50,
-                          ),
-                          Icon(
-                            Icons.check_box_outline_blank_outlined,
+                            Icons.circle_outlined,
                             size: 50,
                           ),
                         ],
@@ -96,23 +90,19 @@ class _PlayScreenState extends State<PlayScreen> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: const [
                           Icon(
-                            Icons.check_box_outline_blank_outlined,
+                            Icons.circle_outlined,
                             size: 50,
                           ),
                           Icon(
-                            Icons.check_box_outline_blank_outlined,
+                            Icons.circle_outlined,
                             size: 50,
                           ),
                           Icon(
-                            Icons.check_box_outline_blank_outlined,
+                            Icons.circle_outlined,
                             size: 50,
                           ),
                           Icon(
-                            Icons.check_box_outline_blank_outlined,
-                            size: 50,
-                          ),
-                          Icon(
-                            Icons.check_box_outline_blank_outlined,
+                            Icons.circle_outlined,
                             size: 50,
                           ),
                         ],
@@ -121,23 +111,19 @@ class _PlayScreenState extends State<PlayScreen> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: const [
                           Icon(
-                            Icons.check_box_outline_blank_outlined,
+                            Icons.circle_outlined,
                             size: 50,
                           ),
                           Icon(
-                            Icons.check_box_outline_blank_outlined,
+                            Icons.circle_outlined,
                             size: 50,
                           ),
                           Icon(
-                            Icons.check_box_outline_blank_outlined,
+                            Icons.circle_outlined,
                             size: 50,
                           ),
                           Icon(
-                            Icons.check_box_outline_blank_outlined,
-                            size: 50,
-                          ),
-                          Icon(
-                            Icons.check_box_outline_blank_outlined,
+                            Icons.circle_outlined,
                             size: 50,
                           ),
                         ],
@@ -146,23 +132,19 @@ class _PlayScreenState extends State<PlayScreen> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: const [
                           Icon(
-                            Icons.check_box_outline_blank_outlined,
+                            Icons.circle_outlined,
                             size: 50,
                           ),
                           Icon(
-                            Icons.check_box_outline_blank_outlined,
+                            Icons.circle_outlined,
                             size: 50,
                           ),
                           Icon(
-                            Icons.check_box_outline_blank_outlined,
+                            Icons.circle_outlined,
                             size: 50,
                           ),
                           Icon(
-                            Icons.check_box_outline_blank_outlined,
-                            size: 50,
-                          ),
-                          Icon(
-                            Icons.check_box_outline_blank_outlined,
+                            Icons.circle_outlined,
                             size: 50,
                           ),
                         ],
