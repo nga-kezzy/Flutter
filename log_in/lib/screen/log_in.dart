@@ -2,9 +2,14 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_switch/flutter_switch.dart';
 
-class logIn extends StatelessWidget {
+class logIn extends StatefulWidget {
   const logIn({Key? key}) : super(key: key);
 
+  @override
+  State<logIn> createState() => _logInState();
+}
+
+class _logInState extends State<logIn> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -117,6 +122,7 @@ class logIn extends StatelessWidget {
                       height: 10,
                     ),
                     TextField(
+                      obscureText: true,
                       decoration: InputDecoration(
                         border: OutlineInputBorder(),
                         hintText: 'Please enter password',
@@ -126,17 +132,83 @@ class logIn extends StatelessWidget {
                 ),
               ),
               Container(
-                padding: EdgeInsets.only(
+                padding: const EdgeInsets.only(
                   top: 10,
                   left: 20,
                   right: 20,
                 ),
                 child: Row(
-                  children: [
+                  children: const [
                     Text(
                       'remember me next time',
                       style: TextStyle(
                         fontSize: 16,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                child: Column(
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.only(
+                        top: 40,
+                        bottom: 30,
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(
+                            child: const Text('or log in with',
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w600,
+                                )),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Image.asset(
+                            'assets/images/google.png',
+                            width: 40,
+                            height: 40,
+                          ),
+                          const SizedBox(
+                            width: 15,
+                          ),
+                          Image.asset(
+                            'assets/images/facebook.png',
+                            width: 50,
+                            height: 50,
+                          ),
+                          const SizedBox(
+                            width: 15,
+                          ),
+                          Image.asset(
+                            'assets/images/twitter.png',
+                            width: 50,
+                            height: 50,
+                          ),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      padding: const EdgeInsets.only(
+                        top: 25,
+                      ),
+                      child: ElevatedButton(
+                        onPressed: () {},
+                        child: const Text(
+                          'Get Started',
+                          style: TextStyle(
+                            fontSize: 18,
+                          ),
+                        ),
                       ),
                     ),
                   ],
