@@ -122,6 +122,7 @@ class _logInState extends State<logIn> {
                       height: 10,
                     ),
                     TextField(
+                      
                       obscureText: true,
                       decoration: InputDecoration(
                         border: OutlineInputBorder(),

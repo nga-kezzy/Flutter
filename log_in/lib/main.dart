@@ -12,6 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       // title: 'Food',
       theme: ThemeData(
+        fontFamily: 'Ubuntu',
         primarySwatch: Colors.blue,
       ),
       home: logIn(),
