@@ -116,16 +116,19 @@ class _logInState extends State<logIn> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          const Text(
-                            'Sign up',
-                            style: TextStyle(
-                                fontSize: 20, fontWeight: FontWeight.w900),
+                          Container(
+                            height: 40,
+                            child: const Text(
+                              'Sign up',
+                              style: TextStyle(
+                                  fontSize: 20, fontWeight: FontWeight.w900),
+                            ),
                           ),
                           !_isLogin
                               ? Container(
                                   width: 20,
                                   child: const Divider(
-                                    height: 20,
+                                    height: 0,
                                     thickness: 3,
                                     color: Colors.blue,
                                   ),
