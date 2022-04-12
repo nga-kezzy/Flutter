@@ -11,6 +11,7 @@ class logIn extends StatefulWidget {
 
 class _logInState extends State<logIn> {
   bool _isLogin = true;
+  bool _status = false;
 
   void _signUp() {
     setState(() {
@@ -262,12 +263,28 @@ class _logInState extends State<logIn> {
                 right: 20,
               ),
               child: Row(
-                children: const [
+                children: [
                   Text(
                     'remember me next time',
                     style: TextStyle(
                       fontSize: 18,
                     ),
+                  ),
+                  SizedBox(
+                    width: 70,
+                  ),
+                  FlutterSwitch(
+                    width: 60,
+                    height: 25.0,
+                    valueFontSize: 10.0,
+                    toggleSize: 20.0,
+                    value: _status,
+                    showOnOff: true,
+                    onToggle: (val) {
+                      setState(() {
+                        _status = val;
+                      });
+                    },
                   ),
                 ],
               ),
