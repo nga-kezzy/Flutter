@@ -29,7 +29,7 @@ class _LogInScreenState extends State<LogInScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Image.asset(
-                        'assets/images/love.jpg',
+                        'assets/images/tempz.png',
                         cacheWidth: 90,
                       ),
                     ],
@@ -159,7 +159,7 @@ class _LogInScreenState extends State<LogInScreen> {
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
+                  children: const [
                     Text('or log in with',
                         style: TextStyle(
                           fontSize: 18,
@@ -172,19 +172,47 @@ class _LogInScreenState extends State<LogInScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Container(
-                        width: 60,
-                        height: 50,
-                        child: Image.asset('assets/images/fb.png'),
+                        width: 80,
+                        height: 65,
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            color: Colors.black,
+                          ),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Image.asset(
+                          'assets/images/fb.png',
+                          cacheHeight: 45,
+                          cacheWidth: 35,
+                        ),
                       ),
                       SizedBox(width: 20),
                       Container(
-                        width: 50,
-                        child: Image.asset('assets/images/gg.png'),
+                        width: 80,
+                        height: 65,
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.black),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Image.asset(
+                          'assets/images/gg.png',
+                          cacheHeight: 45,
+                          cacheWidth: 45,
+                        ),
                       ),
                       SizedBox(width: 20),
                       Container(
-                        width: 42,
-                        child: Image.asset('assets/images/apple.png'),
+                        width: 80,
+                        height: 65,
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.black),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Image.asset(
+                          'assets/images/apple.png',
+                          cacheHeight: 45,
+                          cacheWidth: 35,
+                        ),
                       ),
                     ],
                   ),
