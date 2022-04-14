@@ -11,7 +11,7 @@ class LogInScreen extends StatefulWidget {
 
 class _LogInScreenState extends State<LogInScreen> {
   bool _status = true;
-  bool _islogin = true;
+  bool _islogin = false;
 
   void _signUp() {
     setState(() {
@@ -241,34 +241,32 @@ class _LogInScreenState extends State<LogInScreen> {
                 const SizedBox(
                   height: 15,
                 ),
-                _islogin
-                    ? Row(
-                        children: [
-                          FlutterSwitch(
-                            activeColor: Colors.green,
-                            width: 50.0,
-                            height: 20.0,
-                            valueFontSize: 10,
-                            toggleSize: 15,
-                            showOnOff: true,
-                            value: _status,
-                            onToggle: (val) {
-                              setState(() {
-                                _status = val;
-                              });
-                            },
-                          ),
-                          const SizedBox(
-                            width: 20,
-                          ),
-                          Text('Remember'),
-                          const SizedBox(
-                            width: 95,
-                          ),
-                          Text('Forgot password ?'),
-                        ],
-                      )
-                    : SizedBox(),
+                Row(
+                  children: [
+                    FlutterSwitch(
+                      activeColor: Colors.green,
+                      width: 50.0,
+                      height: 20.0,
+                      valueFontSize: 10,
+                      toggleSize: 15,
+                      showOnOff: true,
+                      value: _status,
+                      onToggle: (val) {
+                        setState(() {
+                          _status = val;
+                        });
+                      },
+                    ),
+                    const SizedBox(
+                      width: 20,
+                    ),
+                    Text('Remember'),
+                    const SizedBox(
+                      width: 95,
+                    ),
+                    _islogin ? Text('Forgot password ?') : SizedBox(),
+                  ],
+                ),
                 _islogin
                     ? Container(
                         padding: const EdgeInsets.only(top: 40, bottom: 30),
