@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../models/shape_painter.dart';
+
 class PlayScreen extends StatefulWidget {
   const PlayScreen({Key? key}) : super(key: key);
 
@@ -49,7 +51,8 @@ class _PlayScreenState extends State<PlayScreen> {
                 ]),
               ),
               Container(
-                height: 70,
+                padding: const EdgeInsets.only(top: 50),
+                height: 150,
                 width: MediaQuery.of(context).size.width,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -62,94 +65,11 @@ class _PlayScreenState extends State<PlayScreen> {
               ),
               Expanded(
                 child: Container(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
-                          Icon(
-                            Icons.circle_outlined,
-                            size: 50,
-                          ),
-                          Icon(
-                            Icons.circle_outlined,
-                            size: 50,
-                          ),
-                          Icon(
-                            Icons.circle_outlined,
-                            size: 50,
-                          ),
-                          Icon(
-                            Icons.circle_outlined,
-                            size: 50,
-                          ),
-                        ],
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
-                          Icon(
-                            Icons.circle_outlined,
-                            size: 50,
-                          ),
-                          Icon(
-                            Icons.circle_outlined,
-                            size: 50,
-                          ),
-                          Icon(
-                            Icons.circle_outlined,
-                            size: 50,
-                          ),
-                          Icon(
-                            Icons.circle_outlined,
-                            size: 50,
-                          ),
-                        ],
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
-                          Icon(
-                            Icons.circle_outlined,
-                            size: 50,
-                          ),
-                          Icon(
-                            Icons.circle_outlined,
-                            size: 50,
-                          ),
-                          Icon(
-                            Icons.circle_outlined,
-                            size: 50,
-                          ),
-                          Icon(
-                            Icons.circle_outlined,
-                            size: 50,
-                          ),
-                        ],
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
-                          Icon(
-                            Icons.circle_outlined,
-                            size: 50,
-                          ),
-                          Icon(
-                            Icons.circle_outlined,
-                            size: 50,
-                          ),
-                          Icon(
-                            Icons.circle_outlined,
-                            size: 50,
-                          ),
-                          Icon(
-                            Icons.circle_outlined,
-                            size: 50,
-                          ),
-                        ],
-                      ),
-                    ],
+                  padding: const EdgeInsets.only(top: 50),
+                  width: MediaQuery.of(context).size.width,
+                  color: Colors.white,
+                  child: CustomPaint(
+                    foregroundPainter: ShapePainter(),
                   ),
                 ),
               ),
