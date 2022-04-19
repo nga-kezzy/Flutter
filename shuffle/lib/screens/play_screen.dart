@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:shuffle/models/word.dart';
 
 import '../models/shape_painter.dart';
 
@@ -10,7 +12,44 @@ class PlayScreen extends StatefulWidget {
 }
 
 class _PlayScreenState extends State<PlayScreen> {
+  bool isPlaying = false;
+  // Word word1 = Word(eng: 'HAMMER', vi: 'BÚA');  // khái báo biến  theo cách 1
+  // late Word word2;  // khái báo biến theo cách 2
+  late Word word3; // khái báo biến  theo cách 2
+  late List<String> codeUnitStrings;
+  late List<String> unitStings;
+
   @override
+  void initState() {
+    super.initState();
+    isPlaying = true;
+
+    word3 = Word(
+        eng: 'HAMMER', vi: 'BÚA'); //khai báo biến trục tiếp trong initstate
+    codeUnitStrings = word3.eng.split(''); // tách ra từng chữ cái
+    unitStings = [];
+    print(codeUnitStrings);
+
+    for (int i = 0; i < codeUnitStrings.length; i++) {
+      if (unitStings.isEmpty) {
+        unitStings.add(codeUnitStrings[i]);
+      } else {
+        bool flag =
+            true; // có nghĩa là cờ này check xem pt muốn thêm vào có trùng vs pt bên trong mảng mới ko
+        for (int j = 0; j < unitStings.length; j++) {
+          if (codeUnitStrings[i] == unitStings[j]) {
+            flag = false;
+            break;
+          }
+        }
+        if (flag) {
+          unitStings.add(codeUnitStrings[i]);
+        }
+      }
+    }
+    print(unitStings);
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
@@ -52,7 +91,7 @@ class _PlayScreenState extends State<PlayScreen> {
               ),
               Container(
                 padding: const EdgeInsets.only(top: 50),
-                height: 150,
+                height: 220,
                 width: MediaQuery.of(context).size.width,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -67,7 +106,6 @@ class _PlayScreenState extends State<PlayScreen> {
                 child: Container(
                   padding: const EdgeInsets.only(top: 50),
                   width: MediaQuery.of(context).size.width,
-                  color: Colors.white,
                   child: CustomPaint(
                     foregroundPainter: ShapePainter(),
                   ),
