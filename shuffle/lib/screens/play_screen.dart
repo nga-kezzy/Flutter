@@ -102,12 +102,51 @@ class _PlayScreenState extends State<PlayScreen> {
                   ],
                 ),
               ),
-              Expanded(
+              Container(
                 child: Container(
                   padding: const EdgeInsets.only(top: 50),
                   width: MediaQuery.of(context).size.width,
-                  child: CustomPaint(
-                    foregroundPainter: ShapePainter(),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      CustomPaint(
+                        foregroundPainter: ShapePainter(0, 0, 35), //top
+                      ),
+                      CustomPaint(
+                        foregroundPainter: ShapePainter(-80, 30, 35),
+                      ),
+                      CustomPaint(
+                        foregroundPainter: ShapePainter(-140, 90, 35),
+                      ),
+                      CustomPaint(
+                        foregroundPainter: ShapePainter(-170, 170, 35), //left
+                      ),
+                      CustomPaint(
+                        foregroundPainter: ShapePainter(-140, 250, 35),
+                      ),
+                      CustomPaint(
+                        foregroundPainter: ShapePainter(-80, 310, 35),
+                      ),
+                      CustomPaint(
+                        foregroundPainter: ShapePainter(0, 340, 35), //bottom
+                      ),
+                      CustomPaint(
+                        foregroundPainter: ShapePainter(80, 310, 35),
+                      ),
+                      CustomPaint(
+                        foregroundPainter: ShapePainter(140, 250, 35),
+                      ),
+                      CustomPaint(
+                        foregroundPainter: ShapePainter(170, 170, 35), // right
+                      ),
+                      CustomPaint(
+                        foregroundPainter: ShapePainter(140, 90, 35),
+                      ),
+                      CustomPaint(
+                        foregroundPainter: ShapePainter(80, 30, 35),
+                      ),
+                    ],
                   ),
                 ),
               ),
