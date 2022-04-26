@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shuffle/models/position.dart';
 import 'package:shuffle/models/word.dart';
-
-import '../models/shape_painter.dart';
+import 'dart:math';
 
 class PlayScreen extends StatefulWidget {
   const PlayScreen({Key? key}) : super(key: key);
@@ -17,7 +17,19 @@ class _PlayScreenState extends State<PlayScreen> {
   // late Word word2;  // khái báo biến theo cách 2
   late Word word3; // khái báo biến  theo cách 2
   late List<String> codeUnitStrings;
-  late List<String> unitStings;
+  late List<String> unitStrings;
+  late List<String> stringRandom;
+  late int lengthRandom;
+  List<int> cuoi = [];
+  List<String> cuoiString = [];
+  List<int> moi = [];
+  List<String> answer = [];
+  List<Position> postions = [];
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+  }
 
   @override
   void initState() {
@@ -27,30 +39,93 @@ class _PlayScreenState extends State<PlayScreen> {
     word3 = Word(
         eng: 'HAMMER', vi: 'BÚA'); //khai báo biến trục tiếp trong initstate
     codeUnitStrings = word3.eng.split(''); // tách ra từng chữ cái
-    unitStings = [];
+    unitStrings = [];
     print(codeUnitStrings);
 
     for (int i = 0; i < codeUnitStrings.length; i++) {
-      if (unitStings.isEmpty) {
-        unitStings.add(codeUnitStrings[i]);
+      if (unitStrings.isEmpty) {
+        unitStrings.add(codeUnitStrings[i]);
       } else {
         bool flag =
             true; // có nghĩa là cờ này check xem pt muốn thêm vào có trùng vs pt bên trong mảng mới ko
-        for (int j = 0; j < unitStings.length; j++) {
-          if (codeUnitStrings[i] == unitStings[j]) {
+        for (int j = 0; j < unitStrings.length; j++) {
+          if (codeUnitStrings[i] == unitStrings[j]) {
             flag = false;
             break;
           }
         }
         if (flag) {
-          unitStings.add(codeUnitStrings[i]);
+          unitStrings.add(codeUnitStrings[i]);
         }
       }
     }
-    print(unitStings);
+    print(unitStrings);
+
+    // random ra các chữ cho đủ 12 từ
+
+    List<String> chu = [
+      'A',
+      'B',
+      'C',
+      'D',
+      'E',
+      'F',
+      'G',
+      'H',
+      'I',
+      'J',
+      'K',
+      'L',
+      'M',
+      'N',
+      'O',
+      'P',
+      'Q',
+      'R',
+      'S',
+      'T',
+      'U',
+      'V',
+      'W',
+      'X',
+      'Y',
+      'Z'
+    ];
+
+    int dem = 12 - unitStrings.length;
+
+    final random = new Random();
+
+    for (int i = 0; i < dem; i++) {
+      int a = random.nextInt(chu.length);
+      cuoi.add(a);
+    }
+    print(cuoi);
+    for (int i = 0; i < cuoi.length; i++) {
+      cuoiString.add(chu[cuoi[i]]);
+    }
+
+    for (int i = 0; i < unitStrings.length; i++) {
+      cuoiString.add(unitStrings[i]);
+    }
+    print(cuoiString);
   }
 
   Widget build(BuildContext context) {
+    postions = [
+      Position(null, null, MediaQuery.of(context).size.width / 2 - 30, null),
+      Position(40, MediaQuery.of(context).size.width / 2 - 110, null, null),
+      Position(110, MediaQuery.of(context).size.width / 2 - 180, null, null),
+      Position(450 / 2 - 30, null, 0, null),
+      Position(null, MediaQuery.of(context).size.width / 2 - 110, null, 40),
+      Position(null, MediaQuery.of(context).size.width / 2 - 180, null, 110),
+      Position(450 / 2 - 30, null, null, null),
+      Position(40, null, MediaQuery.of(context).size.width / 2 - 110, null),
+      Position(110, null, MediaQuery.of(context).size.width / 2 - 180, null),
+      Position(null, null, MediaQuery.of(context).size.width / 2 - 30, 0),
+      Position(null, null, MediaQuery.of(context).size.width / 2 - 110, 40),
+      Position(null, null, MediaQuery.of(context).size.width / 2 - 180, 110)
+    ];
     return Scaffold(
       body: SafeArea(
         child: Container(
@@ -104,48 +179,33 @@ class _PlayScreenState extends State<PlayScreen> {
               ),
               Container(
                 child: Container(
-                  padding: const EdgeInsets.only(top: 50),
+                  height: 450,
+                  color: Colors.yellow,
                   width: MediaQuery.of(context).size.width,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
+                  child: Stack(
                     children: [
-                      CustomPaint(
-                        foregroundPainter: ShapePainter(0, 0, 35), //top
-                      ),
-                      CustomPaint(
-                        foregroundPainter: ShapePainter(-80, 30, 35),
-                      ),
-                      CustomPaint(
-                        foregroundPainter: ShapePainter(-140, 90, 35),
-                      ),
-                      CustomPaint(
-                        foregroundPainter: ShapePainter(-170, 170, 35), //left
-                      ),
-                      CustomPaint(
-                        foregroundPainter: ShapePainter(-140, 250, 35),
-                      ),
-                      CustomPaint(
-                        foregroundPainter: ShapePainter(-80, 310, 35),
-                      ),
-                      CustomPaint(
-                        foregroundPainter: ShapePainter(0, 340, 35), //bottom
-                      ),
-                      CustomPaint(
-                        foregroundPainter: ShapePainter(80, 310, 35),
-                      ),
-                      CustomPaint(
-                        foregroundPainter: ShapePainter(140, 250, 35),
-                      ),
-                      CustomPaint(
-                        foregroundPainter: ShapePainter(170, 170, 35), // right
-                      ),
-                      CustomPaint(
-                        foregroundPainter: ShapePainter(140, 90, 35),
-                      ),
-                      CustomPaint(
-                        foregroundPainter: ShapePainter(80, 30, 35),
-                      ),
+                      for (int i = 0; i < postions.length; i++)
+                        Positioned(
+                          top: postions[i].top,
+                          right: postions[i].right,
+                          bottom: postions[i].bottom,
+                          left: postions[i].left,
+                          child: Container(
+                            width: 60,
+                            height: 60,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Colors.green[400],
+                            ),
+                            child: Center(
+                              child: Text(
+                                '${cuoiString[i]}',
+                                style: const TextStyle(
+                                    fontSize: 26, fontWeight: FontWeight.bold),
+                              ),
+                            ),
+                          ),
+                        ),
                     ],
                   ),
                 ),
