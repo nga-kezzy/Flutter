@@ -22,23 +22,19 @@ class _PlayScreenState extends State<PlayScreen> {
   late int lengthRandom;
   List<int> cuoi = [];
   List<String> cuoiString = [];
-  List<int> moi = [];
-  List<String> answer = [];
   List<Position> postions = [];
-
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-  }
+  List<String> render = [];
 
   @override
   void initState() {
     super.initState();
     isPlaying = true;
 
-    word3 = Word(
-        eng: 'HAMMER', vi: 'BÚA'); //khai báo biến trục tiếp trong initstate
+    word3 = Word(eng: 'HAMMER', vi: 'Búa');
+
     codeUnitStrings = word3.eng.split(''); // tách ra từng chữ cái
+    render = codeUnitStrings.map((e) => '_').toList();
+    print(render);
     unitStrings = [];
     print(codeUnitStrings);
 
@@ -113,18 +109,22 @@ class _PlayScreenState extends State<PlayScreen> {
 
   Widget build(BuildContext context) {
     postions = [
-      Position(null, null, MediaQuery.of(context).size.width / 2 - 30, null),
-      Position(40, MediaQuery.of(context).size.width / 2 - 110, null, null),
-      Position(110, MediaQuery.of(context).size.width / 2 - 180, null, null),
-      Position(450 / 2 - 30, null, 0, null),
-      Position(null, MediaQuery.of(context).size.width / 2 - 110, null, 40),
-      Position(null, MediaQuery.of(context).size.width / 2 - 180, null, 110),
-      Position(450 / 2 - 30, null, null, null),
-      Position(40, null, MediaQuery.of(context).size.width / 2 - 110, null),
+      // top
+      Position(10, null, MediaQuery.of(context).size.width / 2 - 33, null),
+      Position(40, MediaQuery.of(context).size.width / 2 - 115, null, null),
+      Position(105, MediaQuery.of(context).size.width / 2 - 180, null, null),
+      // left
+      Position(450 / 2 - 33, 10, null, null),
+      Position(null, MediaQuery.of(context).size.width / 2 - 180, null, 105),
+      Position(null, MediaQuery.of(context).size.width / 2 - 120, null, 40),
+      // bottom
+      Position(null, null, MediaQuery.of(context).size.width / 2 - 30, 10),
+      Position(null, null, MediaQuery.of(context).size.width / 2 - 115, 40),
+      Position(null, null, MediaQuery.of(context).size.width / 2 - 180, 105),
+      // right
+      Position(450 / 2 - 33, null, 10, null),
       Position(110, null, MediaQuery.of(context).size.width / 2 - 180, null),
-      Position(null, null, MediaQuery.of(context).size.width / 2 - 30, 0),
-      Position(null, null, MediaQuery.of(context).size.width / 2 - 110, 40),
-      Position(null, null, MediaQuery.of(context).size.width / 2 - 180, 110)
+      Position(45, null, MediaQuery.of(context).size.width / 2 - 115, null),
     ];
     return Scaffold(
       body: SafeArea(
@@ -171,9 +171,24 @@ class _PlayScreenState extends State<PlayScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.start,
-                  children: const [
-                    Text('Hiện chữ đã chọn'),
-                    Text('Chữ tiếng việt'),
+                  children: [
+                    Text(
+                      '${render.join(" ")}',
+                      style: const TextStyle(
+                        fontSize: 30,
+                        color: Colors.red,
+                      ),
+                    ),
+                    SizedBox(height: 10),
+                    Container(
+                      margin: const EdgeInsets.only(left: 15),
+                      child: Text(
+                        '${word3.vi}',
+                        style: const TextStyle(
+                          fontSize: 25,
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -190,18 +205,55 @@ class _PlayScreenState extends State<PlayScreen> {
                           right: postions[i].right,
                           bottom: postions[i].bottom,
                           left: postions[i].left,
-                          child: Container(
-                            width: 60,
-                            height: 60,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: Colors.green[400],
-                            ),
-                            child: Center(
-                              child: Text(
-                                '${cuoiString[i]}',
-                                style: const TextStyle(
-                                    fontSize: 26, fontWeight: FontWeight.bold),
+                          child: InkWell(
+                            onTap: () {
+                              if (render[0] == '_') {
+                                setState(() {
+                                  render[0] = cuoiString[i];
+                                });
+                              } else {
+                                for (var j = 0; j < render.length; j++) {
+                                  if (render[j] == '_') {
+                                    setState(() {
+                                      render[j] = cuoiString[i];
+                                    });
+                                    break;
+                                  }
+                                }
+                              }
+                              if (render[render.length - 1] != '_') {
+                                print(render.join(''));
+                                if (render == word3.eng) {
+                                  print('true');
+                                  setState(() {
+                                    render = codeUnitStrings
+                                        .map((e) => '_')
+                                        .toList();
+                                  });
+                                } else {
+                                  print('false');
+                                  setState(() {
+                                    render = codeUnitStrings
+                                        .map((e) => '_')
+                                        .toList();
+                                  });
+                                }
+                              }
+                            },
+                            child: Container(
+                              width: 66,
+                              height: 66,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Colors.green[300],
+                              ),
+                              child: Center(
+                                child: Text(
+                                  '${cuoiString[i]}',
+                                  style: const TextStyle(
+                                      fontSize: 26,
+                                      fontWeight: FontWeight.w500),
+                                ),
                               ),
                             ),
                           ),
