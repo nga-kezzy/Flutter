@@ -24,14 +24,17 @@ class _PlayScreenState extends State<PlayScreen> {
   List<String> cuoiString = [];
   List<Position> postions = [];
   List<String> render = [];
+  List<String> word = [];
 
   @override
   void initState() {
     super.initState();
     isPlaying = true;
+    word3 = Word(eng: 'HOME', vi: 'Ngôi nhà');
+    replayRandom();
+  }
 
-    word3 = Word(eng: 'HAMMER', vi: 'Búa');
-
+  void replayRandom() {
     codeUnitStrings = word3.eng.split(''); // tách ra từng chữ cái
     render = codeUnitStrings.map((e) => '_').toList();
     print(render);
@@ -58,7 +61,6 @@ class _PlayScreenState extends State<PlayScreen> {
     print(unitStrings);
 
     // random ra các chữ cho đủ 12 từ
-
     List<String> chu = [
       'A',
       'B',
@@ -195,7 +197,6 @@ class _PlayScreenState extends State<PlayScreen> {
               Container(
                 child: Container(
                   height: 450,
-                  color: Colors.yellow,
                   width: MediaQuery.of(context).size.width,
                   child: Stack(
                     children: [
@@ -222,20 +223,25 @@ class _PlayScreenState extends State<PlayScreen> {
                                 }
                               }
                               if (render[render.length - 1] != '_') {
-                                print(render.join(''));
-                                if (render == word3.eng) {
+                                if (render.join('') == word3.eng) {
                                   print('true');
                                   setState(() {
-                                    render = codeUnitStrings
-                                        .map((e) => '_')
-                                        .toList();
+                                    unitStrings = [];
+                                    cuoi = [];
+                                    cuoiString = [];
+                                    postions = [];
+                                    word3 = Word(eng: 'WATER', vi: 'Nước');
+                                    replayRandom();
                                   });
                                 } else {
                                   print('false');
                                   setState(() {
-                                    render = codeUnitStrings
-                                        .map((e) => '_')
-                                        .toList();
+                                    unitStrings = [];
+                                    cuoi = [];
+                                    cuoiString = [];
+                                    postions = [];
+                                    word3 = Word(eng: 'CAT', vi: 'Mèo');
+                                    replayRandom();
                                   });
                                 }
                               }
