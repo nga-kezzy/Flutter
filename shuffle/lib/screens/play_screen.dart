@@ -24,7 +24,15 @@ class _PlayScreenState extends State<PlayScreen> {
   List<String> cuoiString = [];
   List<Position> postions = [];
   List<String> render = [];
-  List<String> word = [];
+  List<Word> word = [
+    Word(eng: 'CAT', vi: 'Mèo'),
+    Word(eng: 'HOME', vi: 'Ngôi nhà'),
+    Word(eng: 'LEFT', vi: 'Trái'),
+    Word(eng: 'RIGHT', vi: 'Phải'),
+    Word(eng: 'STAR', vi: 'Ngôi sao'),
+    Word(eng: 'MUSIC', vi: 'Âm nhạc'),
+    Word(eng: 'KEY BOARD', vi: 'Bàn phím'),
+  ];
 
   @override
   void initState() {
@@ -112,21 +120,21 @@ class _PlayScreenState extends State<PlayScreen> {
   Widget build(BuildContext context) {
     postions = [
       // top
-      Position(10, null, MediaQuery.of(context).size.width / 2 - 33, null),
-      Position(40, MediaQuery.of(context).size.width / 2 - 115, null, null),
-      Position(105, MediaQuery.of(context).size.width / 2 - 180, null, null),
+      Position(10, null, 350 / 2 - 25, null),
+      Position(30, 350 / 2 - 95, null, null),
+      Position(80, 350 / 2 - 145, null, null),
       // left
-      Position(450 / 2 - 33, 10, null, null),
-      Position(null, MediaQuery.of(context).size.width / 2 - 180, null, 105),
-      Position(null, MediaQuery.of(context).size.width / 2 - 120, null, 40),
+      Position(350 / 2 - 25, 5, null, null),
+      Position(null, 350 / 2 - 145, null, 80),
+      Position(null, 350 / 2 - 95, null, 30),
       // bottom
-      Position(null, null, MediaQuery.of(context).size.width / 2 - 30, 10),
-      Position(null, null, MediaQuery.of(context).size.width / 2 - 115, 40),
-      Position(null, null, MediaQuery.of(context).size.width / 2 - 180, 105),
+      Position(null, null, 350 / 2 - 25, 10),
+      Position(null, null, 350 / 2 - 95, 30),
+      Position(null, null, 350 / 2 - 145, 80),
       // right
-      Position(450 / 2 - 33, null, 10, null),
-      Position(110, null, MediaQuery.of(context).size.width / 2 - 180, null),
-      Position(45, null, MediaQuery.of(context).size.width / 2 - 115, null),
+      Position(350 / 2 - 25, null, 5, null),
+      Position(80, null, 350 / 2 - 145, null),
+      Position(30, null, 350 / 2 - 95, null),
     ];
     return Scaffold(
       body: SafeArea(
@@ -196,12 +204,15 @@ class _PlayScreenState extends State<PlayScreen> {
               ),
               Container(
                 child: Container(
-                  height: 450,
-                  width: MediaQuery.of(context).size.width,
+                  height: 350,
+                  width: 350,
+                  // color: Colors.yellow,
                   child: Stack(
                     children: [
                       for (int i = 0; i < postions.length; i++)
                         Positioned(
+                          width: 50,
+                          height: 50,
                           top: postions[i].top,
                           right: postions[i].right,
                           bottom: postions[i].bottom,
