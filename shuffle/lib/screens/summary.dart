@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import './home_screen.dart';
+import './play_screen.dart';
 
-class sumMary extends StatelessWidget {
-  const sumMary({Key? key}) : super(key: key);
+class SumMary extends StatelessWidget {
+  final int diem;
+  SumMary(this.diem);
 
   @override
   Widget build(BuildContext context) {
@@ -36,11 +39,11 @@ class sumMary extends StatelessWidget {
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: const [
+                      children: [
                         Text(
-                          '3',
+                          '$diem',
                           style: TextStyle(
-                            fontSize: 24,
+                            fontSize: 28,
                             color: Colors.white,
                             fontWeight: FontWeight.w600,
                           ),
@@ -384,7 +387,12 @@ class sumMary extends StatelessWidget {
                               fontSize: 20,
                             ),
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => PlayScreen()));
+                          },
                         ),
                         const SizedBox(
                           width: 10,
@@ -416,7 +424,12 @@ class sumMary extends StatelessWidget {
                           children: [
                             Positioned(
                               child: InkWell(
-                                onTap: () {},
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => HomeScreen()));
+                                },
                                 child: Container(
                                   width: 50,
                                   height: 50,

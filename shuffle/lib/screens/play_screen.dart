@@ -4,6 +4,8 @@ import 'package:shuffle/models/position.dart';
 import 'package:shuffle/models/word.dart';
 import 'dart:math';
 
+import 'package:shuffle/screens/summary.dart';
+
 class PlayScreen extends StatefulWidget {
   const PlayScreen({Key? key}) : super(key: key);
 
@@ -20,6 +22,7 @@ class _PlayScreenState extends State<PlayScreen> {
   late List<String> unitStrings;
   late List<String> stringRandom;
   late int lengthRandom;
+  int point = 0;
   List<int> cuoi = [];
   List<String> cuoiString = [];
   List<Position> postions = [];
@@ -27,18 +30,20 @@ class _PlayScreenState extends State<PlayScreen> {
   List<Word> word = [
     Word(eng: 'CAT', vi: 'Mèo'),
     Word(eng: 'HOME', vi: 'Ngôi nhà'),
-    Word(eng: 'LEFT', vi: 'Trái'),
-    Word(eng: 'RIGHT', vi: 'Phải'),
+    Word(eng: 'LEFT', vi: 'Bên trái'),
+    Word(eng: 'RIGHT', vi: 'Bên phải'),
     Word(eng: 'STAR', vi: 'Ngôi sao'),
     Word(eng: 'MUSIC', vi: 'Âm nhạc'),
-    Word(eng: 'KEY BOARD', vi: 'Bàn phím'),
+    Word(eng: 'WATER', vi: 'Nước'),
   ];
+
+  int index = 0;
 
   @override
   void initState() {
     super.initState();
     isPlaying = true;
-    word3 = Word(eng: 'HOME', vi: 'Ngôi nhà');
+    word3 = word[index];
     replayRandom();
   }
 
@@ -241,8 +246,17 @@ class _PlayScreenState extends State<PlayScreen> {
                                     cuoi = [];
                                     cuoiString = [];
                                     postions = [];
-                                    word3 = Word(eng: 'WATER', vi: 'Nước');
+                                    point += 1;
+                                    index++;
+                                    word3 = word[index];
                                     replayRandom();
+                                    if (index == 6) {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  SumMary(point)));
+                                    }
                                   });
                                 } else {
                                   print('false');
@@ -251,8 +265,16 @@ class _PlayScreenState extends State<PlayScreen> {
                                     cuoi = [];
                                     cuoiString = [];
                                     postions = [];
-                                    word3 = Word(eng: 'CAT', vi: 'Mèo');
+                                    index++;
+                                    word3 = word[index];
                                     replayRandom();
+                                    if (index == 6) {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  SumMary(point)));
+                                    }
                                   });
                                 }
                               }
