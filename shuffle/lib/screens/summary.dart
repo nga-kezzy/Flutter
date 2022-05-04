@@ -4,6 +4,10 @@ import './play_screen.dart';
 
 class SumMary extends StatelessWidget {
   final int diem;
+  // final String input;
+  // final String outputEng;
+  // final String outputVi;
+
   SumMary(this.diem);
 
   @override
@@ -18,7 +22,7 @@ class SumMary extends StatelessWidget {
                 height: 280,
                 child: Column(
                   children: [
-                    SizedBox(
+                    const SizedBox(
                       height: 30,
                     ),
                     Row(
@@ -34,7 +38,7 @@ class SumMary extends StatelessWidget {
                         ),
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 50,
                     ),
                     Row(
@@ -42,7 +46,7 @@ class SumMary extends StatelessWidget {
                       children: [
                         Text(
                           '$diem',
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 28,
                             color: Colors.white,
                             fontWeight: FontWeight.w600,
@@ -397,54 +401,40 @@ class SumMary extends StatelessWidget {
                         const SizedBox(
                           width: 10,
                         ),
-                        Stack(
-                          children: [
-                            Positioned(
-                              child: InkWell(
-                                onTap: () {},
-                                child: Container(
-                                  width: 50,
-                                  height: 50,
-                                  decoration: const BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      color: Colors.blue),
-                                  child: const Center(
-                                    child: Icon(Icons.share,
-                                        color: Colors.white, size: 30),
-                                  ),
-                                ),
-                              ),
+                        InkWell(
+                          onTap: () {},
+                          child: Container(
+                            width: 50,
+                            height: 50,
+                            decoration: const BoxDecoration(
+                                shape: BoxShape.circle, color: Colors.blue),
+                            child: const Center(
+                              child: Icon(Icons.share,
+                                  color: Colors.white, size: 30),
                             ),
-                          ],
+                          ),
                         ),
                         const SizedBox(
                           width: 10,
                         ),
-                        Stack(
-                          children: [
-                            Positioned(
-                              child: InkWell(
-                                onTap: () {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => HomeScreen()));
-                                },
-                                child: Container(
-                                  width: 50,
-                                  height: 50,
-                                  decoration: const BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      color: Colors.blue),
-                                  child: const Center(
-                                    child: Icon(Icons.east,
-                                        color: Colors.white, size: 30),
-                                  ),
-                                ),
-                              ),
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => HomeScreen()));
+                          },
+                          child: Container(
+                            width: 50,
+                            height: 50,
+                            decoration: const BoxDecoration(
+                                shape: BoxShape.circle, color: Colors.blue),
+                            child: const Center(
+                              child: Icon(Icons.east,
+                                  color: Colors.white, size: 30),
                             ),
-                          ],
-                        )
+                          ),
+                        ),
                       ],
                     ),
                   ],
