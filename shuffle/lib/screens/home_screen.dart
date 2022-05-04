@@ -1,8 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:shuffle/api/home_api.dart';
+import 'package:shuffle/models/data_talk.dart';
 import 'package:shuffle/screens/play_screen.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  @override
+  void didChangeDependencies() {
+    FetchHomeApi().fetchPost();
+    super.didChangeDependencies();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -51,40 +64,56 @@ class HomeScreen extends StatelessWidget {
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) => PlayScreen()));
                   },
-                  child: ListView.builder(
-                    itemBuilder: (contextListView, index) {
-                      return Container(
-                        padding: const EdgeInsets.only(left: 5),
-                        margin: const EdgeInsets.only(bottom: 4),
-                        height: 80,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(5),
-                          border: Border.all(
-                            color: Colors.grey,
-                          ),
-                        ),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: const [
-                            Icon(
-                              Icons.play_circle_outlined,
-                              size: 45,
-                              color: Colors.blue,
-                            ),
-                            SizedBox(
-                              width: 15,
-                            ),
-                            Text('Activities & Events',
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.w700,
-                                )),
-                          ],
-                        ),
-                      );
-                    },
-                    itemCount: 10,
-                  ),
+                  child: FutureBuilder<List<DataTalk>>(
+                      future: FetchHomeApi().fetchPost(),
+                      builder: (context, snapshot) {
+                        if (snapshot.connectionState ==
+                            ConnectionState.waiting) {
+                          return const Center(
+                            child: CircularProgressIndicator(),
+                          );
+                        }
+                        return ListView.builder(
+                          itemBuilder: (contextListView, index) {
+                            return Container(
+                              padding: const EdgeInsets.only(left: 5),
+                              margin: const EdgeInsets.only(bottom: 4),
+                              height: 80,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(5),
+                                border: Border.all(
+                                  color: Colors.grey,
+                                ),
+                              ),
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  const Icon(
+                                    Icons.play_circle_outlined,
+                                    size: 45,
+                                    color: Colors.blue,
+                                  ),
+                                  const SizedBox(
+                                    width: 15,
+                                  ),
+                                  Container(
+                                    width: 300,
+                                    child: Text(
+                                      snapshot.data![index].name!,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: const TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.w700,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            );
+                          },
+                          itemCount: snapshot.data!.length,
+                        );
+                      }),
                 ),
               ),
             ],

@@ -1,14 +1,18 @@
-import 'model/student.dart';
+import 'package:flutter/material.dart';
+
+import './screen/home_screen.dart';
 
 void main() {
-  List<Student> students = [
-    Student('Ngà', 22, 'Nam'),
-    Student('Ngọc', 26, 'Nữ'),
-    Student('Minh', 23, 'Nam'),
-    Student('Luận', 223, 'Nam'),
-  ];
+  runApp(const MyApp());
+}
 
-  for (int i = 0; i < students.length; i++) {
-    print('${students[i]}\n');
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: HomeScreen(),
+    );
   }
 }

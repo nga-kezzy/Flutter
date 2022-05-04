@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import './screens/play_screen.dart';
 import 'package:shuffle/screens/home_screen.dart';
 
 void main() => runApp(MyApp());
