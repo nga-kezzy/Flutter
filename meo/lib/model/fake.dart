@@ -1,14 +1,16 @@
 class Fake {
-  late int postId;
-  late int id;
-  late String name;
-  late String body;
+  final int postId;
+  final int id;
+  final String name;
+  final String body;
+  final String email;
 
   Fake(
       {required this.postId,
       required this.id,
       required this.name,
-      required this.body});
+      required this.body,
+      required this.email});
 
   factory Fake.fromJson(Map<String, dynamic> json) {
     return Fake(
@@ -16,6 +18,7 @@ class Fake {
       id: json['id'],
       name: json['name'],
       body: json['body'],
+      email: json['email'],
     );
   }
 
@@ -25,6 +28,7 @@ class Fake {
     data['id'] = this.id;
     data['name'] = this.name;
     data['body'] = this.body;
+    data['email'] = this.email;
     return data;
   }
 }
