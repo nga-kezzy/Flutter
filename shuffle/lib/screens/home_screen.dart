@@ -79,6 +79,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               padding: const EdgeInsets.only(left: 5),
                               margin: const EdgeInsets.only(bottom: 4),
                               height: 80,
+                              width: MediaQuery.of(context).size.width,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(5),
                                 border: Border.all(
@@ -96,8 +97,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   const SizedBox(
                                     width: 15,
                                   ),
-                                  Container(
-                                    width: 300,
+                                  Expanded(
                                     child: Text(
                                       snapshot.data![index].name!,
                                       overflow: TextOverflow.ellipsis,

@@ -18,9 +18,9 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SafeArea(
-      child: Container(
-        child: FutureBuilder<List<Fake>>(
+      body: SafeArea(
+        child: Container(
+          child: FutureBuilder<List<Fake>>(
             future: FetchHomeApi().fetchPost(),
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
@@ -86,8 +86,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 },
                 itemCount: snapshot.data!.length,
               );
-            }),
+            },
+          ),
+        ),
       ),
-    ));
+    );
   }
 }
