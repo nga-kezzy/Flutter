@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:shuffle/models/position.dart';
 import 'package:shuffle/models/word.dart';
 import 'dart:math';
+import '../api/play_api.dart';
 
 import 'package:shuffle/screens/summary.dart';
 
@@ -14,6 +15,12 @@ class PlayScreen extends StatefulWidget {
 }
 
 class _PlayScreenState extends State<PlayScreen> {
+  @override
+  void didChangeDependencies() {
+    FetchPlayApi().fetchPost();
+    super.didChangeDependencies();
+  }
+
   bool isPlaying = false;
   // Word word1 = Word(eng: 'HAMMER', vi: 'BÚA');  // khái báo biến  theo cách 1
   // late Word word2;  // khái báo biến theo cách 2

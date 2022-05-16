@@ -1,4 +1,4 @@
-class DataTalk {
+class DataPlay {
   int? id;
   String? nameVi;
   String? name;
@@ -14,9 +14,9 @@ class DataTalk {
   String? createdtime;
   String? updatetime;
   bool? isVip;
-  int? type;
+  bool? type;
 
-  DataTalk(
+  DataPlay(
       {this.id,
       this.nameVi,
       this.name,
@@ -34,8 +34,8 @@ class DataTalk {
       this.isVip,
       this.type});
 
-  factory DataTalk.fromJson(Map<String, dynamic> json) {
-    return DataTalk(
+  factory DataPlay.fromJson(Map<String, dynamic> json) {
+    return DataPlay(
       id: json['id'],
       nameVi: json['name_vi'],
       name: json['name'],
