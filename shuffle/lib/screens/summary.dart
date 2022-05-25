@@ -391,12 +391,7 @@ class SumMary extends StatelessWidget {
                               fontSize: 20,
                             ),
                           ),
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => PlayScreen()));
-                          },
+                          onPressed: () {},
                         ),
                         const SizedBox(
                           width: 10,

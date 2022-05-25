@@ -59,23 +59,25 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
               Expanded(
-                child: InkWell(
-                  onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => PlayScreen()));
-                  },
-                  child: FutureBuilder<List<DataTalk>>(
-                      future: FetchHomeApi().fetchPost(),
-                      builder: (context, snapshot) {
-                        if (snapshot.connectionState ==
-                            ConnectionState.waiting) {
-                          return const Center(
-                            child: CircularProgressIndicator(),
-                          );
-                        }
-                        return ListView.builder(
-                          itemBuilder: (contextListView, index) {
-                            return Container(
+                child: FutureBuilder<List<DataTalk>>(
+                    future: FetchHomeApi().fetchPost(),
+                    builder: (context, snapshot) {
+                      if (snapshot.connectionState == ConnectionState.waiting) {
+                        return const Center(
+                          child: CircularProgressIndicator(),
+                        );
+                      }
+
+                      return ListView.builder(
+                        itemBuilder: (contextListView, index) {
+                          return InkWell(
+                            onTap: () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (cont) => PlayScreen(
+                                        id: snapshot.data![index].id!,
+                                      )));
+                            },
+                            child: Container(
                               padding: const EdgeInsets.only(left: 5),
                               margin: const EdgeInsets.only(bottom: 4),
                               height: 80,
@@ -109,12 +111,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                   ),
                                 ],
                               ),
-                            );
-                          },
-                          itemCount: snapshot.data!.length,
-                        );
-                      }),
-                ),
+                            ),
+                          );
+                        },
+                        itemCount: snapshot.data!.length,
+                      );
+                    }),
               ),
             ],
           ),

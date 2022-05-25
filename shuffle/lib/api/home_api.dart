@@ -19,7 +19,6 @@ class FetchHomeApi {
         dataCate.forEach((element) {
           result.add(DataTalk.fromJson(element));
         });
-        print(result);
         return result;
       }
       return result;
