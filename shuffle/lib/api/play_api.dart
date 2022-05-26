@@ -6,7 +6,7 @@ import 'dart:developer';
 
 class FetchPlayApi {
   final random = new Random();
-  List<String> randomReuslt = [];
+  List<String> randomResult = [];
   Future<List<DataPlay>> fetchPost(String cid) async {
     var uri = Uri.http(
       'api.myfeel.me',
@@ -25,9 +25,15 @@ class FetchPlayApi {
         });
         for (var i = 0; i < result.length; i++) {
           print(result[i].name);
-          int a = random.nextInt(result[i].name!.length);
-          print(result[i].name!.split(' ')[a]);
+          int a = random.nextInt(result[i].name!.split(' ').length);
+          // nếu là khoảng trống thì cắt ra rồi random
+
+          String randomWord = result[i].name!.split(' ')[a];
+          //gán giá trị đã lấy đc ở trên vào mảng này
+
+          randomResult.add(randomWord);
         }
+        print('Đây là mảng random: $randomResult');
         return result;
       }
 
