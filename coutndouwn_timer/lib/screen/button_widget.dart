@@ -5,6 +5,7 @@ class ButtonWidget extends StatelessWidget {
   final Color color;
   final Color backgroundColor;
   final VoidCallback onClicked;
+  final bool isOnClick;
 
   const ButtonWidget({
     Key? key,
@@ -12,6 +13,7 @@ class ButtonWidget extends StatelessWidget {
     this.color = Colors.white,
     this.backgroundColor = Colors.black,
     required this.onClicked,
+    required this.isOnClick,
   }) : super(key: key);
 
   @override
@@ -30,6 +32,6 @@ class ButtonWidget extends StatelessWidget {
             color: color,
           ),
         ),
-        onPressed: onClicked,
+        onPressed: isOnClick ? null : onClicked,
       );
 }
