@@ -1,93 +1,98 @@
 import 'package:flutter/material.dart';
-import 'package:meo/model/fake.dart';
-import '../API/home_api.dart';
+import '../config/theme_config.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+class MyHomePage extends StatelessWidget {
+  MyHomePage({Key? key}) : super(key: key);
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
-  @override
-  void didChangeDependencies() {
-    FetchHomeApi().fetchPost();
-    super.didChangeDependencies();
-  }
-
   Widget build(BuildContext context) {
+    List<String> genres = ['All', 'Action', 'Honor', 'Ronmace', 'fantasy'];
+    final Size size = MediaQuery.of(context).size;
     return Scaffold(
-      body: SafeArea(
-        child: Container(
-          child: FutureBuilder<List<Fake>>(
-            future: FetchHomeApi().fetchPost(),
-            builder: (context, snapshot) {
-              if (snapshot.connectionState == ConnectionState.waiting) {
-                return const Center(
-                  child: CircularProgressIndicator(),
-                );
-              }
-              return ListView.builder(
-                itemBuilder: (contextListView, index) {
-                  return Container(
-                    padding: const EdgeInsets.only(left: 5),
-                    margin: const EdgeInsets.only(bottom: 4),
-                    height: 200,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(5),
-                      border: Border.all(
-                        color: Colors.grey,
-                      ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Container(
+              padding: const EdgeInsets.only(top: 40, left: 20, right: 20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: const [
+                  Text(
+                    'Find Your Best\nMovie ',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 40,
                     ),
-                    child: Column(children: [
-                      Text(
-                        snapshot.data![index].name,
-                        overflow: TextOverflow.ellipsis,
-                        style: const TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w700,
+                  ),
+                  Icon(
+                    Icons.account_circle,
+                    color: Colors.blue,
+                    size: 90,
+                  ),
+                ],
+              ),
+            ),
+            const Padding(
+              padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+            ),
+            Row(
+              children: [
+                Expanded(
+                  child: Row(
+                    children: [
+                      Container(
+                        margin: const EdgeInsets.only(left: 20, right: 20),
+                        height: 50,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(22),
+                        ),
+                        child: Row(
+                          children: const [
+                            Padding(padding: EdgeInsets.only(left: 20)),
+                            Icon(
+                              Icons.search,
+                              color: Colors.red,
+                              size: 30,
+                            ),
+                            SizedBox(
+                              width: 20,
+                            ),
+                            Text(
+                              'Search movies',
+                              style: TextStyle(
+                                  fontSize: 22,
+                                  color: DarkTheme.darkerBackground,
+                                  fontWeight: FontWeight.w500),
+                            )
+                          ],
                         ),
                       ),
-                      Text(
-                        snapshot.data![index].postId.toString(),
-                        overflow: TextOverflow.ellipsis,
+                      Icon(Icons.abc_outlined),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+            Container(
+              height: 100,
+              color: Colors.white,
+              child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: genres.length,
+                  itemBuilder: (context, index) {
+                    return Container(
+                      child: Text(
+                        genres[index],
                         style: const TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w700,
+                          color: Colors.black,
+                          fontSize: 20,
                         ),
                       ),
-                      Text(
-                        snapshot.data![index].id.toString(),
-                        overflow: TextOverflow.ellipsis,
-                        style: const TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w700,
-                        ),
-                      ),
-                      Text(
-                        snapshot.data![index].email,
-                        overflow: TextOverflow.ellipsis,
-                        style: const TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w700,
-                        ),
-                      ),
-                      Text(
-                        snapshot.data![index].body,
-                        overflow: TextOverflow.ellipsis,
-                        style: const TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w700,
-                        ),
-                      ),
-                    ]),
-                  );
-                },
-                itemCount: snapshot.data!.length,
-              );
-            },
-          ),
+                    );
+                  }),
+            ),
+          ],
         ),
       ),
     );
