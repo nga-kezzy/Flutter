@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import '../main.dart';
 import '../screen/button_widget.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -12,7 +11,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int seconds = 60;
+  int seconds = 10;
   bool _isOnClick = false;
   Timer? timer;
   void startTimer() {
@@ -20,13 +19,17 @@ class _MyHomePageState extends State<MyHomePage> {
       if (seconds == 0) {
         timer.cancel();
         setState(() {
-          seconds = 60;
+          seconds = 10;
           _isOnClick = false;
         });
       } else {
         setState(() => seconds--);
       }
     });
+  }
+
+  void play() {
+    setState(() => {_isOnClick = !_isOnClick});
   }
 
   Widget buildButtons() {
@@ -68,7 +71,47 @@ class _MyHomePageState extends State<MyHomePage> {
             const SizedBox(
               height: 100,
             ),
-            buildButtons()
+            _isOnClick ? SizedBox() : buildButtons(),
+            !_isOnClick
+                ? SizedBox()
+                : Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      ElevatedButton(
+                        child: const Text('Pause',
+                            style: TextStyle(
+                              fontSize: 24,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            )),
+                        style: ElevatedButton.styleFrom(
+                            primary: Colors.black,
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 30, vertical: 20),
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(22))),
+                        onPressed: () {},
+                      ),
+                      const SizedBox(
+                        width: 20,
+                      ),
+                      ElevatedButton(
+                        child: const Text('Cancel',
+                            style: TextStyle(
+                              fontSize: 24,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            )),
+                        style: ElevatedButton.styleFrom(
+                            primary: Colors.black,
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 30, vertical: 20),
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(22))),
+                        onPressed: () {},
+                      ),
+                    ],
+                  )
           ],
         ),
       ),
