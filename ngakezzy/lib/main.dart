@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key? key}) : super(key: key);
+  const MyHomePage({Key? key}) : super(key: key);
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -36,7 +36,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void starTimer() {
-    timer = Timer.periodic(Duration(seconds: 1), (timer) {
+    timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       if (seconds == 0) {
         timer.cancel();
         setState(() {
@@ -55,10 +55,16 @@ class _MyHomePageState extends State<MyHomePage> {
       body: SafeArea(
         child: Container(
           decoration: const BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage("assets/hinhnen.jpg"),
-              fit: BoxFit.cover,
-            ),
+            // image: DecorationImage( // sử dụng hình ảnh làm hình nền
+            //   image: AssetImage("assets/hinhnen.jpg"),
+            //   fit: BoxFit.cover,
+            // ),
+            gradient: LinearGradient(
+                // sử dụng dải màu làm nền
+                colors: [Colors.pink, Colors.cyan],
+                begin: Alignment(-1, 1),
+                end: Alignment(1, -1),
+                tileMode: TileMode.clamp),
           ),
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
@@ -67,19 +73,24 @@ class _MyHomePageState extends State<MyHomePage> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Container(
-                  padding: EdgeInsets.only(top: 10),
-                  child: const Text(' Ngà Kezzy',
-                      style: TextStyle(color: Colors.white)),
+                  padding: const EdgeInsets.only(top: 10),
+                  child: const Text(
+                    ' Ngà Kezzy',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16),
+                  ),
                 ),
-                SizedBox(height: 280),
+                const SizedBox(height: 200),
                 Text('$seconds',
                     style: const TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
-                      fontSize: 150,
+                      fontSize: 200,
                     )),
                 const SizedBox(
-                  height: 50,
+                  height: 150,
                 ),
                 _status
                     ? const SizedBox()
@@ -124,7 +135,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               });
                             },
                             style: ElevatedButton.styleFrom(
-                                primary: Colors.black,
+                                primary: Colors.red,
                                 padding: const EdgeInsets.symmetric(
                                     vertical: 20, horizontal: 30),
                                 shape: RoundedRectangleBorder(
@@ -150,7 +161,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               });
                             },
                             style: ElevatedButton.styleFrom(
-                                primary: Colors.black,
+                                primary: Colors.red,
                                 padding: const EdgeInsets.symmetric(
                                     vertical: 20, horizontal: 30),
                                 shape: RoundedRectangleBorder(
