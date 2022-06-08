@@ -23,14 +23,20 @@ class _MyHomePageState extends State<MyHomePage> {
                   height: 100,
                   child: Row(
                     children: [
-                      const Icon(
-                        Icons.account_circle_outlined,
-                        color: Colors.blue,
-                        size: 100,
+                      Container(
+                        height: 120,
+                        width: 120,
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                          image: DecorationImage(
+                              image: AssetImage("assets/love.jpg"),
+                              fit: BoxFit.cover),
+                        ),
                       ),
                       SizedBox(width: 10),
                       Column(
                         mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: const [
                           Text(
                             'Amy Adams',
@@ -42,14 +48,14 @@ class _MyHomePageState extends State<MyHomePage> {
                           ),
                           Text(
                             'PROJECT MANAGER',
-                            style: TextStyle(fontSize: 18),
+                            style: TextStyle(fontSize: 18, color: Colors.grey),
                           ),
                           SizedBox(
                             height: 18,
                           ),
                           Text(
                             '165 day togetther ',
-                            style: TextStyle(fontSize: 18),
+                            style: TextStyle(fontSize: 18, color: Colors.grey),
                           ),
                         ],
                       ),
@@ -250,6 +256,16 @@ class _MyHomePageState extends State<MyHomePage> {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(25),
                     color: Colors.blue[900],
+                  ),
+                ),
+                Container(
+                  child: Row(
+                    children: [
+                      Column(
+                        children: [],
+                      ),
+                      Column(),
+                    ],
                   ),
                 ),
               ],
