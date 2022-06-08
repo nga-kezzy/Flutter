@@ -48,7 +48,9 @@ class _MyHomePageState extends State<MyHomePage> {
       backgroundColor: Colors.black,
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.symmetric(vertical: 10),
+          padding: EdgeInsets.symmetric(
+            vertical: 10,
+          ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
@@ -56,7 +58,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 scrollDirection: Axis.vertical,
                 child: Container(
                   alignment: Alignment.bottomRight,
-                  padding: EdgeInsets.only(right: 30),
+                  padding: EdgeInsets.only(right: 15),
                   child: Text(
                     text,
                     style: const TextStyle(
@@ -115,17 +117,18 @@ class _MyHomePageState extends State<MyHomePage> {
                 height: 15,
               ),
               Container(
-                margin: const EdgeInsets.only(left: 10),
+                margin: const EdgeInsets.only(
+                  left: 15,
+                ),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     RaisedButton(
-                      padding: const EdgeInsets.fromLTRB(35, 15, 128, 15),
+                      padding: const EdgeInsets.fromLTRB(15, 15, 115, 15),
                       onPressed: () {
                         calculation('0');
                       },
                       shape: const StadiumBorder(),
-                      child: Text(
+                      child: const Text(
                         '0',
                         style: TextStyle(
                           fontSize: 35,
@@ -133,6 +136,9 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                       ),
                       color: Colors.grey.shade800,
+                    ),
+                    const SizedBox(
+                      width: 15,
                     ),
                     calbuttom('.', Colors.grey.shade800, Colors.white),
                     calbuttom('=', Colors.amber, Colors.white),
