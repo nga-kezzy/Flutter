@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:percent_indicator/circular_percent_indicator.dart';
+
 import 'package:percent_indicator/linear_percent_indicator.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -32,7 +32,6 @@ class _MyHomePageState extends State<MyHomePage> {
         child: SingleChildScrollView(
           child: Container(
             width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height,
             padding: EdgeInsets.all(15),
             child: Column(
               children: [
@@ -41,8 +40,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: Row(
                     children: [
                       Container(
-                        height: 120,
-                        width: 120,
+                        height: 60,
+                        width: 60,
                         decoration: const BoxDecoration(
                           shape: BoxShape.circle,
                           image: DecorationImage(
@@ -58,7 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           Text(
                             'Amy Adams',
                             style: TextStyle(
-                                fontSize: 22, fontWeight: FontWeight.w500),
+                                fontSize: 18, fontWeight: FontWeight.w500),
                           ),
                           SizedBox(
                             height: 13,
@@ -66,7 +65,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           Text(
                             'PROJECT MANAGER',
                             style: TextStyle(
-                              fontSize: 18,
+                              fontSize: 15,
                               color: Color(0xFF555555),
                             ),
                           ),
@@ -76,7 +75,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           Text(
                             '165 day togetther ',
                             style: TextStyle(
-                                fontSize: 18, color: Color(0xFF555555)),
+                                fontSize: 15, color: Color(0xFF555555)),
                           ),
                         ],
                       ),
@@ -311,7 +310,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           ),
                         ],
                       ),
-                      SizedBox(width: 80),
+                      SizedBox(width: 40),
                       Column(
                         children: [
                           const Text(
@@ -321,12 +320,14 @@ class _MyHomePageState extends State<MyHomePage> {
                             ),
                           ),
                           SizedBox(height: 15),
-                          Container(
-                            height: 100,
-                            width: 100,
-                            decoration: BoxDecoration(
-                              image: DecorationImage(
-                                image: AssetImage("assets/rocket.png"),
+                          Expanded(
+                            child: Container(
+                              height: 100,
+                              width: 100,
+                              decoration: BoxDecoration(
+                                image: DecorationImage(
+                                  image: AssetImage("assets/rocket.png"),
+                                ),
                               ),
                             ),
                           )
@@ -371,7 +372,69 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                     ],
                   ),
-                )
+                ),
+                SizedBox(height: 10),
+                Container(
+                  padding: const EdgeInsets.all(15),
+                  width: MediaQuery.of(context).size.width,
+                  height: 185,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(10),
+                    boxShadow: [
+                      BoxShadow(
+                        offset: Offset(0, 1),
+                        blurRadius: 5,
+                        color: Colors.black.withOpacity(0.3),
+                      ),
+                    ],
+                  ),
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          Container(
+                            width: 40,
+                            height: 40,
+                            decoration: const BoxDecoration(
+                              image: DecorationImage(
+                                  image: AssetImage("assets/avt.jpg"),
+                                  fit: BoxFit.cover),
+                              shape: BoxShape.circle,
+                            ),
+                          ),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          const Text('Alex Morgan'),
+                          const SizedBox(width: 10),
+                          const Text('1 min ago '),
+                          // const SizedBox(width: 5),
+                          const Icon(Icons.more_vert_outlined),
+                          // const SizedBox(width: 5),
+                          const Text('Events'),
+                        ],
+                      ),
+                      const SizedBox(height: 15),
+                      Row(
+                        children: const [
+                          Expanded(
+                            child: Text(
+                                'Hi guys! We have good news for you :) Workshop #3 will take place tomorrow at 5 pm! @robsymons and @wlizabethhbanks well perform for us',
+                                style: TextStyle(fontSize: 16)),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 15),
+                      Row(
+                        children: const [
+                          Icon(Icons.visibility),
+                          Text('19 views'),
+                        ],
+                      )
+                    ],
+                  ),
+                ),
               ],
             ),
           ),
