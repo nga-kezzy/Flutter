@@ -20,7 +20,8 @@ class _MyHomePageState extends State<MyHomePage> {
         decoration: BoxDecoration(
             border: Border.all(width: 1, color: Colors.blue),
             borderRadius: BorderRadius.circular(25)),
-        child: Text(text, style: TextStyle(color: Colors.blue, fontSize: 16)),
+        child: Text(text,
+            style: const TextStyle(color: Colors.blue, fontSize: 16)),
       ),
     );
   }
@@ -38,7 +39,7 @@ class _MyHomePageState extends State<MyHomePage> {
         children: [
           Text(
             txt1,
-            style: TextStyle(fontSize: 16, color: Colors.white),
+            style: const TextStyle(fontSize: 16, color: Colors.white),
           ),
           const SizedBox(
             height: 5,
@@ -81,7 +82,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: SingleChildScrollView(
           child: Container(
             width: MediaQuery.of(context).size.width,
-            padding: EdgeInsets.all(15),
+            padding: const EdgeInsets.all(15),
             child: Column(
               children: [
                 Container(
@@ -98,7 +99,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               fit: BoxFit.cover),
                         ),
                       ),
-                      SizedBox(width: 5),
+                      const SizedBox(width: 5),
                       Column(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -128,7 +129,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           ),
                         ],
                       ),
-                      SizedBox(width: 25),
+                      const SizedBox(width: 25),
                       Column(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
@@ -149,7 +150,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     ],
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
                 Container(
@@ -172,7 +173,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     ],
                   ),
                 ),
-                SizedBox(height: 30),
+                const SizedBox(height: 30),
                 Row(
                   children: const [
                     Text('Apdatation', style: TextStyle(fontSize: 22)),
@@ -181,7 +182,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 const SizedBox(height: 15),
                 Container(
                   height: 150,
-                  padding: EdgeInsets.all(15),
+                  padding: const EdgeInsets.all(15),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(15),
                     color: Colors.blue[900],
@@ -212,13 +213,13 @@ class _MyHomePageState extends State<MyHomePage> {
                             onPressed: () {},
                             style: ElevatedButton.styleFrom(
                                 primary: Colors.white,
-                                minimumSize: Size(120, 40)),
+                                minimumSize: const Size(120, 40)),
                             child: const Text('Continue',
                                 style: TextStyle(color: Colors.blue)),
                           ),
                         ],
                       ),
-                      SizedBox(width: 40),
+                      const SizedBox(width: 40),
                       Column(
                         children: [
                           const Text(
@@ -227,7 +228,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               color: Colors.white,
                             ),
                           ),
-                          SizedBox(height: 15),
+                          const SizedBox(height: 15),
                           Expanded(
                             child: Container(
                               height: 100,
@@ -281,7 +282,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     ],
                   ),
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 Container(
                   padding: const EdgeInsets.all(15),
                   width: MediaQuery.of(context).size.width,
@@ -291,7 +292,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     borderRadius: BorderRadius.circular(10),
                     boxShadow: [
                       BoxShadow(
-                        offset: Offset(0, 1),
+                        offset: const Offset(0, 3),
                         blurRadius: 5,
                         color: Colors.black.withOpacity(0.3),
                       ),
@@ -317,9 +318,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           const Text('Alex Morgan'),
                           const SizedBox(width: 10),
                           const Text('1 min ago '),
-                          // const SizedBox(width: 5),
                           const Icon(Icons.more_vert_outlined),
-                          // const SizedBox(width: 5),
                           const Text('Events'),
                         ],
                       ),
