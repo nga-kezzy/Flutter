@@ -25,6 +25,55 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
+  Widget callday(Color cl, String txt1, String txt2, String txt3) {
+    return Container(
+      padding: const EdgeInsets.all(15),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(25),
+        color: cl,
+      ),
+      width: 250,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            txt1,
+            style: TextStyle(fontSize: 20, color: Colors.white),
+          ),
+          const SizedBox(
+            height: 15,
+          ),
+          Text(
+            txt2,
+            style: const TextStyle(
+                fontSize: 20, fontWeight: FontWeight.w500, color: Colors.white),
+          ),
+          const SizedBox(
+            height: 30,
+          ),
+          Row(
+            children: [
+              Text(
+                txt3,
+                style: const TextStyle(
+                  fontSize: 20,
+                  color: Colors.white,
+                ),
+              ),
+              const SizedBox(
+                width: 10,
+              ),
+              const Icon(
+                Icons.arrow_circle_right_outlined,
+                color: Colors.white,
+              )
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -110,155 +159,14 @@ class _MyHomePageState extends State<MyHomePage> {
                     children: [
                       Row(
                         children: [
-                          Container(
-                            padding: const EdgeInsets.all(15),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(25),
-                              color: Colors.blue[700],
-                            ),
-                            width: 250,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                const Text(
-                                  'Avalible annual leave',
-                                  style: TextStyle(
-                                      fontSize: 20, color: Colors.white),
-                                ),
-                                const SizedBox(
-                                  height: 15,
-                                ),
-                                const Text(
-                                  '16 days',
-                                  style: TextStyle(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.w500,
-                                      color: Colors.white),
-                                ),
-                                const SizedBox(
-                                  height: 30,
-                                ),
-                                Row(
-                                  children: const [
-                                    Text(
-                                      'Schedule',
-                                      style: TextStyle(
-                                        fontSize: 20,
-                                        color: Colors.white,
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      width: 10,
-                                    ),
-                                    Icon(
-                                      Icons.arrow_circle_right_outlined,
-                                      color: Colors.white,
-                                    )
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ),
+                          callday(Colors.blue.shade700,
+                              'Availible annual leave', '16 days', 'Schedule'),
                           SizedBox(width: 15),
-                          Container(
-                            padding: const EdgeInsets.all(15),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(25),
-                              color: Colors.orange[800],
-                            ),
-                            width: 250,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                const Text(
-                                  'Days before payday',
-                                  style: TextStyle(
-                                      fontSize: 20, color: Colors.white),
-                                ),
-                                const SizedBox(
-                                  height: 15,
-                                ),
-                                const Text(
-                                  '22 days',
-                                  style: TextStyle(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.w500,
-                                      color: Colors.white),
-                                ),
-                                const SizedBox(
-                                  height: 30,
-                                ),
-                                Row(
-                                  children: const [
-                                    Text(
-                                      'More',
-                                      style: TextStyle(
-                                        fontSize: 20,
-                                        color: Colors.white,
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      width: 10,
-                                    ),
-                                    Icon(
-                                      Icons.arrow_circle_right_outlined,
-                                      color: Colors.white,
-                                    )
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ),
+                          callday(Colors.orange.shade800, 'Days before payday',
+                              '22 days', 'More'),
                           SizedBox(width: 15),
-                          Container(
-                            padding: const EdgeInsets.all(15),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(25),
-                              color: Colors.blue[400],
-                            ),
-                            width: 250,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                const Text(
-                                  'Q-icoins',
-                                  style: TextStyle(
-                                      fontSize: 20, color: Colors.white),
-                                ),
-                                const SizedBox(
-                                  height: 15,
-                                ),
-                                const Text(
-                                  '348 ',
-                                  style: TextStyle(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.w500,
-                                      color: Colors.white),
-                                ),
-                                const SizedBox(
-                                  height: 30,
-                                ),
-                                Row(
-                                  children: const [
-                                    Text(
-                                      'Spend',
-                                      style: TextStyle(
-                                        fontSize: 20,
-                                        color: Colors.white,
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      width: 10,
-                                    ),
-                                    Icon(
-                                      Icons.arrow_circle_right_outlined,
-                                      color: Colors.white,
-                                    )
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ),
+                          callday(
+                              Colors.blue.shade400, 'Q-icoins', '348', 'Spend'),
                         ],
                       ),
                     ],
@@ -305,7 +213,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             style: ElevatedButton.styleFrom(
                                 primary: Colors.white,
                                 minimumSize: Size(120, 40)),
-                            child: Text('Continue',
+                            child: const Text('Continue',
                                 style: TextStyle(color: Colors.blue)),
                           ),
                         ],
@@ -324,7 +232,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             child: Container(
                               height: 100,
                               width: 100,
-                              decoration: BoxDecoration(
+                              decoration: const BoxDecoration(
                                 image: DecorationImage(
                                   image: AssetImage("assets/rocket.png"),
                                 ),
@@ -338,7 +246,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 SizedBox(height: 30),
                 Row(
-                  children: [
+                  children: const [
                     Text('Feed', style: TextStyle(fontSize: 25)),
                   ],
                 ),
@@ -439,6 +347,29 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ),
         ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        fixedColor: Colors.red,
+        showUnselectedLabels: true,
+        unselectedItemColor: Colors.red,
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Calls',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.event),
+            label: 'Project',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.groups),
+            label: 'Team',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.sentiment_satisfied),
+            label: 'Profile',
+          ),
+        ],
       ),
     );
   }
