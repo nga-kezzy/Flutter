@@ -15,12 +15,12 @@ class _MyHomePageState extends State<MyHomePage> {
       onTap: () {},
       child: Container(
         alignment: Alignment.center,
-        height: 40,
+        height: 35,
         width: wd,
         decoration: BoxDecoration(
             border: Border.all(width: 1, color: Colors.blue),
             borderRadius: BorderRadius.circular(25)),
-        child: Text(text, style: TextStyle(color: Colors.blue, fontSize: 20)),
+        child: Text(text, style: TextStyle(color: Colors.blue, fontSize: 16)),
       ),
     );
   }
@@ -32,31 +32,31 @@ class _MyHomePageState extends State<MyHomePage> {
         borderRadius: BorderRadius.circular(25),
         color: cl,
       ),
-      width: 250,
+      width: 210,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
             txt1,
-            style: TextStyle(fontSize: 20, color: Colors.white),
+            style: TextStyle(fontSize: 16, color: Colors.white),
           ),
           const SizedBox(
-            height: 15,
+            height: 5,
           ),
           Text(
             txt2,
             style: const TextStyle(
-                fontSize: 20, fontWeight: FontWeight.w500, color: Colors.white),
+                fontSize: 16, fontWeight: FontWeight.w500, color: Colors.white),
           ),
           const SizedBox(
-            height: 30,
+            height: 15,
           ),
           Row(
             children: [
               Text(
                 txt3,
                 style: const TextStyle(
-                  fontSize: 20,
+                  fontSize: 16,
                   color: Colors.white,
                 ),
               ),
@@ -85,12 +85,12 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Column(
               children: [
                 Container(
-                  height: 100,
+                  height: 80,
                   child: Row(
                     children: [
                       Container(
-                        height: 60,
-                        width: 60,
+                        height: 80,
+                        width: 80,
                         decoration: const BoxDecoration(
                           shape: BoxShape.circle,
                           image: DecorationImage(
@@ -98,9 +98,9 @@ class _MyHomePageState extends State<MyHomePage> {
                               fit: BoxFit.cover),
                         ),
                       ),
-                      SizedBox(width: 10),
+                      SizedBox(width: 5),
                       Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: const [
                           Text(
@@ -109,7 +109,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 fontSize: 18, fontWeight: FontWeight.w500),
                           ),
                           SizedBox(
-                            height: 13,
+                            height: 5,
                           ),
                           Text(
                             'PROJECT MANAGER',
@@ -153,7 +153,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   height: 30,
                 ),
                 Container(
-                  height: 150,
+                  height: 120,
                   child: ListView(
                     scrollDirection: Axis.horizontal,
                     children: [
@@ -172,15 +172,15 @@ class _MyHomePageState extends State<MyHomePage> {
                     ],
                   ),
                 ),
-                SizedBox(height: 50),
+                SizedBox(height: 30),
                 Row(
                   children: const [
                     Text('Apdatation', style: TextStyle(fontSize: 22)),
                   ],
                 ),
-                const SizedBox(height: 25),
+                const SizedBox(height: 15),
                 Container(
-                  height: 170,
+                  height: 150,
                   padding: EdgeInsets.all(15),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(15),
@@ -244,13 +244,13 @@ class _MyHomePageState extends State<MyHomePage> {
                     ],
                   ),
                 ),
-                SizedBox(height: 30),
+                const SizedBox(height: 30),
                 Row(
                   children: const [
                     Text('Feed', style: TextStyle(fontSize: 25)),
                   ],
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 Container(
                   // color: Colors.green,
                   height: 50,
@@ -259,23 +259,23 @@ class _MyHomePageState extends State<MyHomePage> {
                     children: [
                       Row(
                         children: [
-                          callList(50, 'All'),
+                          callList(45, 'All'),
                           const SizedBox(
                             width: 12,
                           ),
-                          callList(110, 'Holidays'),
+                          callList(90, 'Holidays'),
                           const SizedBox(
                             width: 12,
                           ),
-                          callList(110, 'Meeting'),
+                          callList(80, 'Meeting'),
                           const SizedBox(
                             width: 12,
                           ),
-                          callList(90, 'Events'),
+                          callList(70, 'Events'),
                           const SizedBox(
                             width: 12,
                           ),
-                          callList(160, 'Annual Leave'),
+                          callList(120, 'Annual Leave'),
                         ],
                       ),
                     ],
@@ -285,7 +285,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 Container(
                   padding: const EdgeInsets.all(15),
                   width: MediaQuery.of(context).size.width,
-                  height: 185,
+                  height: 200,
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(10),
