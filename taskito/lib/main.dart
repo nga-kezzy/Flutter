@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:taskito/screens/task_screen.dart';
+import 'package:taskito/screens/test.dart';
 import './screens/login_screen.dart';
 import './screens/dashboard_screen.dart';
 
@@ -14,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: DashBoardScreen(),
+      home: Task(),
     );
   }
 }

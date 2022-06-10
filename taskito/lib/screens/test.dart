@@ -14,7 +14,10 @@ class _TestState extends State<Test> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(child: Text('home')),
+      body: Row(children: const [
+        VerticalDivider(thickness: 2, color: Colors.red),
+        Text('home')
+      ]),
       bottomNavigationBar: BottomNavyBar(
           selectedIndex: currentIndex,
           onItemSelected: (index) {
