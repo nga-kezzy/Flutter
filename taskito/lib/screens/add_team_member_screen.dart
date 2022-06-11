@@ -20,13 +20,10 @@ class _AddTeamMemberState extends State<AddTeamMember> {
             child: Column(
               children: [
                 Container(
-                  padding: EdgeInsets.only(top: 30, left: 15),
+                  padding: EdgeInsets.only(top: 40, left: 15),
                   child: Row(
                     children: const [
-                      Icon(
-                        Icons.chevron_left,
-                        color: Colors.white,
-                      ),
+                      Icon(Icons.chevron_left, color: Colors.white, size: 35),
                       Text(
                         'Add team member',
                         style: TextStyle(
