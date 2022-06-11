@@ -22,7 +22,7 @@ class _AddTaskState extends State<AddTask> {
               children: [
                 Container(
                   padding: const EdgeInsets.only(
-                    top: 15,
+                    top: 5,
                     left: 15,
                   ),
                   child: Container(
@@ -220,7 +220,7 @@ class _AddTaskState extends State<AddTask> {
                         ),
                         child: Text('Done', style: TextStyle(fontSize: 20)),
                         onPressed: () {},
-                      )
+                      ),
                     ],
                   ),
                 ),
