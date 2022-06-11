@@ -147,7 +147,8 @@ class _InviterMemberState extends State<InviterMember> {
                           minimumSize:
                               Size(MediaQuery.of(context).size.width, 50),
                         ),
-                        child: Text('Done', style: TextStyle(fontSize: 20)),
+                        child: Text('Send invitation',
+                            style: TextStyle(fontSize: 20)),
                         onPressed: () {},
                       )
                     ],
