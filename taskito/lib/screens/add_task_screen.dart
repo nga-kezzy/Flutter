@@ -21,29 +21,23 @@ class _AddTaskState extends State<AddTask> {
             child: Column(
               children: [
                 Container(
-                  padding: const EdgeInsets.only(
-                    top: 5,
-                    left: 15,
-                  ),
-                  child: Container(
-                    height: 60,
-                    child: Row(
-                      children: const [
-                        Icon(
-                          Icons.chevron_left,
-                          size: 35,
+                  height: 60,
+                  child: Row(
+                    children: const [
+                      Icon(
+                        Icons.chevron_left,
+                        size: 35,
+                        color: Colors.white,
+                      ),
+                      Text(
+                        'Add Task',
+                        style: TextStyle(
+                          fontSize: 25,
+                          fontWeight: FontWeight.bold,
                           color: Colors.white,
                         ),
-                        Text(
-                          'Add Task',
-                          style: TextStyle(
-                            fontSize: 25,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
                 const SizedBox(
