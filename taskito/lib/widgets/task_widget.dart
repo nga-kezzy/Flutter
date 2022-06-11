@@ -80,3 +80,33 @@ Widget listTask(String title, Color cl, String name, String sub_name) {
     ),
   );
 }
+
+Widget addTask(String imgname, String name) {
+  return Column(
+    children: [
+      Container(
+        height: 50,
+        width: 50,
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          image: DecorationImage(image: AssetImage(imgname), fit: BoxFit.cover),
+        ),
+      ),
+      const SizedBox(height: 5),
+      Text(name),
+    ],
+  );
+}
+
+Widget nameTask(Color cl, String data, Color txtcl) {
+  return Container(
+    height: 30,
+    width: 80,
+    alignment: Alignment.center,
+    decoration: BoxDecoration(
+      color: cl,
+      borderRadius: BorderRadius.circular(10),
+    ),
+    child: Text(data, style: TextStyle(color: txtcl)),
+  );
+}
