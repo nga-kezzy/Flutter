@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:taskito/widgets/team_member_widget.dart';
 
-class InviterMember extends StatefulWidget {
-  const InviterMember({Key? key}) : super(key: key);
+class Connection extends StatefulWidget {
+  const Connection({Key? key}) : super(key: key);
 
   @override
-  State<InviterMember> createState() => _InviterMemberState();
+  State<Connection> createState() => _ConnectionState();
 }
 
-class _InviterMemberState extends State<InviterMember> {
+class _ConnectionState extends State<Connection> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,7 +25,7 @@ class _InviterMemberState extends State<InviterMember> {
                     children: const [
                       Icon(Icons.chevron_left, color: Colors.white, size: 35),
                       Text(
-                        'Invite member',
+                        'Connections',
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 25,
@@ -147,8 +147,7 @@ class _InviterMemberState extends State<InviterMember> {
                           minimumSize:
                               Size(MediaQuery.of(context).size.width, 50),
                         ),
-                        child: Text('Send invitation',
-                            style: TextStyle(fontSize: 20)),
+                        child: Text('Done ', style: TextStyle(fontSize: 20)),
                         onPressed: () {},
                       )
                     ],
