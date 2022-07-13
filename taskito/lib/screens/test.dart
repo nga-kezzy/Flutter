@@ -14,10 +14,15 @@ class _TestState extends State<Test> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Row(children: const [
-        VerticalDivider(thickness: 2, color: Colors.red),
-        Text('home')
-      ]),
+      body: GridView(
+        gridDelegate:
+            SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+        children: [
+          Container(color: Colors.red),
+          Container(color: Colors.blue),
+          Container(color: Colors.purple),
+        ],
+      ),
       bottomNavigationBar: BottomNavyBar(
           selectedIndex: currentIndex,
           onItemSelected: (index) {

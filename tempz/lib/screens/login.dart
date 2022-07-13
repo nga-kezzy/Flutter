@@ -242,10 +242,11 @@ class _LogInScreenState extends State<LogInScreen> {
                   height: 15,
                 ),
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     FlutterSwitch(
                       activeColor: Colors.green,
-                      width: 50.0,
+                      width: 40.0,
                       height: 20.0,
                       valueFontSize: 10,
                       toggleSize: 15,
@@ -257,13 +258,7 @@ class _LogInScreenState extends State<LogInScreen> {
                         });
                       },
                     ),
-                    const SizedBox(
-                      width: 20,
-                    ),
                     Text('Remember'),
-                    const SizedBox(
-                      width: 95,
-                    ),
                     _islogin ? Text('Forgot password ?') : SizedBox(),
                   ],
                 ),
@@ -273,19 +268,22 @@ class _LogInScreenState extends State<LogInScreen> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                  primary: Colors.orange,
-                                  minimumSize: const Size(350, 60),
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(25))),
-                              child: const Text(
-                                'Log in',
-                                style: TextStyle(
-                                  fontSize: 25,
+                            Expanded(
+                              child: ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                    primary: Colors.orange,
+                                    minimumSize: const Size(250, 50),
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(25))),
+                                child: const Text(
+                                  'Log in',
+                                  style: TextStyle(
+                                    fontSize: 25,
+                                  ),
                                 ),
+                                onPressed: () {},
                               ),
-                              onPressed: () {},
                             ),
                           ],
                         ),
@@ -297,19 +295,22 @@ class _LogInScreenState extends State<LogInScreen> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                  primary: Colors.orange,
-                                  minimumSize: const Size(350, 60),
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(25))),
-                              child: const Text(
-                                'Sign up',
-                                style: TextStyle(
-                                  fontSize: 25,
+                            Expanded(
+                              child: ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                    primary: Colors.orange,
+                                    minimumSize: const Size(250, 50),
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(25))),
+                                child: const Text(
+                                  'Sign up',
+                                  style: TextStyle(
+                                    fontSize: 25,
+                                  ),
                                 ),
+                                onPressed: () {},
                               ),
-                              onPressed: () {},
                             ),
                           ],
                         ),

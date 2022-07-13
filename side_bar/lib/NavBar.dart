@@ -10,8 +10,8 @@ class NavBar extends StatelessWidget {
         padding: EdgeInsets.zero,
         children: [
           UserAccountsDrawerHeader(
-            accountName: Text('Ngà Kezzy'),
-            accountEmail: Text('+84377422467'),
+            accountName: const Text('Ngà Kezzy'),
+            accountEmail: const Text('+84377422467'),
             currentAccountPicture: CircleAvatar(
               child: ClipOval(
                 child: Image.network(
@@ -22,7 +22,7 @@ class NavBar extends StatelessWidget {
                 ),
               ),
             ),
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               image: DecorationImage(
                 image: NetworkImage(
                   'https://anhdepfree.com/wp-content/uploads/2020/11/anh-nen-4k-anime-1.jpg',
@@ -36,7 +36,7 @@ class NavBar extends StatelessWidget {
               Icons.favorite,
               color: Colors.pink,
             ),
-            title: Text('Favorite',
+            title: const Text('Favorite',
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
             onTap: () => null,
           ),
@@ -45,7 +45,7 @@ class NavBar extends StatelessWidget {
               Icons.group_add,
               color: Colors.blue,
             ),
-            title: Text('New Group',
+            title: const Text('New Group',
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
             onTap: () => null,
           ),
@@ -54,7 +54,7 @@ class NavBar extends StatelessWidget {
               Icons.people,
               color: Colors.green,
             ),
-            title: Text('Friend',
+            title: const Text('Friend',
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
             onTap: () => null,
           ),
@@ -63,16 +63,15 @@ class NavBar extends StatelessWidget {
               Icons.call,
               color: Colors.black,
             ),
-            title: Text('Call',
+            title: const Text('Call',
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
             onTap: () => null,
           ),
           ListTile(
             leading: const Icon(
               Icons.settings_rounded,
-              color: Colors.grey,
             ),
-            title: Text('Setting',
+            title: const Text('Setting',
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
             onTap: () => null,
           ),
@@ -81,7 +80,7 @@ class NavBar extends StatelessWidget {
               Icons.logout,
               color: Colors.red,
             ),
-            title: Text('Exit',
+            title: const Text('Exit',
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
             onTap: () => null,
           ),

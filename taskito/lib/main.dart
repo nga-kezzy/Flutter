@@ -5,6 +5,7 @@ import 'package:taskito/screens/connectinon_screen.dart';
 import 'package:taskito/screens/create_board_screen.dart';
 import 'package:taskito/screens/edit_task_screen.dart';
 import 'package:taskito/screens/history_screen.dart';
+import 'package:taskito/screens/home_board_screen.dart';
 import 'package:taskito/screens/inviter_member_screen.dart';
 import 'package:taskito/screens/task_screen.dart';
 import 'package:taskito/screens/test.dart';
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const CreateBoard(),
+      home: HomeBoard(),
     );
   }
 }
