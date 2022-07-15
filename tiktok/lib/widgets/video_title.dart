@@ -17,7 +17,7 @@ class _VideoTitleState extends State<VideoTitle> {
   @override
   void initState() {
     _videoController =
-        VideoPlayerController.asset('assets/${widget.video.videoUrl}');
+        VideoPlayerController.network('assets/${widget.video.videoUrl}');
     _initializeVideoPlayer = _videoController.initialize();
     _videoController.setLooping(true);
     _videoController.play();
@@ -33,15 +33,14 @@ class _VideoTitleState extends State<VideoTitle> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.blue,
       child: FutureBuilder(
         future: _initializeVideoPlayer,
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
             return VideoPlayer(_videoController);
           } else {
-            return Container(
-              color: Colors.pink,
+            return Center(
+              child: CircularProgressIndicator(),
             );
           }
         },
